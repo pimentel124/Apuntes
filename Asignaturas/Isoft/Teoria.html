@@ -1,0 +1,1562 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Teoría.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+	background-color: #111111;
+	color: white
+}
+
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:-webkit-any-link {
+	color: #949cfa
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<!-- title: Apuntes Ingeniería de Software 2022 -->
+
+<a href="/Asignaturas/Isoft/Solucion">
+	<button>Examen Junio 2022</button>
+</a>
+
+<h1 id="%C3%ADndice-general">Índice general</h1>
+<ul>
+<li><a href="#%C3%ADndice-general">Índice general</a></li>
+<li><a href="#1-introducci%C3%B3-a-lenginyeria-del-software">1. Introducció a l'enginyeria del software</a>
+<ul>
+<li><a href="#introducci%C3%B3-a-lenginyeria-del-software">Introducció a l'enginyeria del software</a></li>
+<li><a href="#desenvolumpament-de-software-profesional">Desenvolumpament de software profesional</a></li>
+</ul>
+</li>
+<li><a href="#2-processos-de-software">2. Processos de software</a>
+<ul>
+<li><a href="#part-i---models-de-processos-de-software">Part I - Models de processos de software</a>
+<ul>
+<li><a href="#proc%C3%A9s-de-software">Procés de software</a></li>
+<li><a href="#descripcions-de-processos-de-software">Descripcions de processos de software</a></li>
+<li><a href="#isoiec-12207---est%C3%A1ndar-sobre-el-ciclo-de-vida-del-software">ISO/IEC 12207 - Estándar sobre el ciclo de vida del software</a></li>
+<li><a href="#tipus-de-processos">Tipus de processos</a></li>
+<li><a href="#models-de-proc%C3%A9s-de-software">Models de procés de software</a></li>
+<li><a href="#activitats-del-proc%C3%A9s">Activitats del procés</a></li>
+<li><a href="#canvis">Canvis</a></li>
+</ul>
+</li>
+<li><a href="#part-ii---m%C3%A8todes-%C3%A0gils">Part II - Mètodes àgils</a>
+<ul>
+<li><a href="#desenvolupament-%C3%A0gil">Desenvolupament àgil</a></li>
+<li><a href="#m%C3%A8todes-%C3%A0gils">Mètodes àgils</a></li>
+<li><a href="#t%C3%A8cniques-de-desenvolupament-%C3%A0gil">Tècniques de desenvolupament àgil</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-enginyeria-de-requisits">3. Enginyeria de requisits</a>
+<ul>
+<li><a href="#requisits-funcionals-i-no-funcionals">Requisits funcionals i no funcionals</a></li>
+<li><a href="#processos-denginyeria-de-requisits">Processos d'enginyeria de requisits</a></li>
+<li><a href="#adquisici%C3%B3-i-an%C3%A0lisi-de-requisits">Adquisició i anàlisi de requisits</a>
+<ul>
+<li><a href="#fases">Fases</a></li>
+<li><a href="#document-de-requisits-de-software">Document de requisits de software</a></li>
+<li><a href="#tipus-de-t%C3%A8cniques-de-documentaci%C3%B3">Tipus de tècniques de documentació</a></li>
+</ul>
+</li>
+<li><a href="#validaci%C3%B3-de-requisits">Validació de requisits</a>
+<ul>
+<li><a href="#t%C3%A8cniques-de-validaci%C3%B3-de-requisits">Tècniques de validació de requisits</a></li>
+</ul>
+</li>
+<li><a href="#canvis-en-els-requisits">Canvis en els requisits</a></li>
+</ul>
+</li>
+<li><a href="#4-modelat-del-sistema">4. Modelat del sistema</a>
+<ul>
+<li><a href="#modelat">Modelat</a>
+<ul>
+<li><a href="#maneres-demprar-un-model">Maneres d'emprar un model</a></li>
+<li><a href="#tipus-de-diagrames-uml">Tipus de diagrames UML</a>
+<ul>
+<li><a href="#diagrama-de-casos-d%C3%BAs">Diagrama de casos d'ús</a></li>
+<li><a href="#diagrames-de-seq%C3%BC%C3%A8ncia">Diagrames de seqüència</a></li>
+<li><a href="#diagrames-de-classes">Diagrames de classes</a></li>
+<li><a href="#diagrames-destats">Diagrames d'estats</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#models">Models</a>
+<ul>
+<li><a href="#tipus-de-models">Tipus de models</a>
+<ul>
+<li><a href="#models-de-context">Models de context</a></li>
+<li><a href="#models-dinteracci%C3%B3">Models d'interacció</a></li>
+<li><a href="#models-estructurals">Models estructurals</a></li>
+<li><a href="#models-de-comportament">Models de comportament</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#5-disseny">5. Disseny</a>
+<ul>
+<li><a href="#part-i---indroducci%C3%B3">Part I - Indroducció</a>
+<ul>
+<li><a href="#model-general-del-proc%C3%A9s-de-disseny">Model general del procés de disseny</a></li>
+<li><a href="#activitats-del-proc%C3%A9s-de-disseny">Activitats del procés de disseny</a></li>
+<li><a href="#import%C3%A0ncia-del-disseny">Importància del disseny</a></li>
+<li><a href="#conceptes-de-disseny">Conceptes de disseny</a></li>
+</ul>
+</li>
+<li><a href="#part-ii---disseny-de-la-iu">Part II - Disseny de la IU</a>
+<ul>
+<li><a href="#usabilitat">Usabilitat</a></li>
+<li><a href="#regles-b%C3%A0siques">Regles bàsiques</a></li>
+<li><a href="#bones-pr%C3%A0ctiques-de-disseny-de-la-iu">Bones pràctiques de disseny de la IU</a></li>
+<li><a href="#proc%C3%A9s">Procés</a></li>
+</ul>
+</li>
+<li><a href="#part-iii---disseny-arquitect%C3%B2nic">Part III - Disseny arquitectònic</a>
+<ul>
+<li><a href="#introducci%C3%B3">Introducció</a></li>
+<li><a href="#avantatges-de-larquitectura">Avantatges de l'arquitectura</a></li>
+<li><a href="#requisits-no-funionals">Requisits no funionals</a></li>
+<li><a href="#les-41-vistes-de-kruchten">Les 4+1 vistes de Kruchten</a></li>
+<li><a href="#patrons-aquitect%C3%B2nics">Patrons aquitectònics</a>
+<ul>
+<li><a href="#1-patr%C3%B3-model-view-controller">1. Patró Model-View-Controller</a></li>
+<li><a href="#2-patr%C3%B3-aquitectura-en-capes">2. Patró Aquitectura en capes</a></li>
+<li><a href="#3-patr%C3%B3-arquitectura-de-repositori">3. Patró Arquitectura de repositori</a></li>
+<li><a href="#4-patr%C3%B3-client-servidor">4. Patró Client-Servidor</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#6-proves-del-software">6. Proves del Software</a>
+<ul>
+<li><a href="#les-proves">Les proves</a></li>
+<li><a href="#conceptes-fonamentals">Conceptes fonamentals</a></li>
+<li><a href="#limitacions-de-les-proves">Limitacions de les proves</a></li>
+<li><a href="#t%C3%A8cniques-de-proves">Tècniques de proves</a>
+<ul>
+<li><a href="#tipus">Tipus</a></li>
+<li><a href="#caixa-blanca">Caixa blanca</a>
+<ul>
+<li><a href="#estrat%C3%A9gies-i-cobertura">Estratégies i cobertura</a></li>
+</ul>
+</li>
+<li><a href="#caixa-negra">Caixa negra</a></li>
+</ul>
+</li>
+<li><a href="#nivells-de-prova">Nivells de prova</a>
+<ul>
+<li><a href="#segons-quin-sigui-lobjecte-de-la-prova">Segons quin sigui l'objecte de la prova</a>
+<ul>
+<li><a href="#proves-unit%C3%A0ries">Proves unitàries</a></li>
+<li><a href="#proves-dintegraci%C3%B3">Proves d'integració</a></li>
+<li><a href="#proves-de-sistema">Proves de sistema</a></li>
+</ul>
+</li>
+<li><a href="#segons-quin-sigui-el-seu-objetiu">Segons quin sigui el seu objetiu</a></li>
+</ul>
+</li>
+<li><a href="#eines-de-suport-a-les-proves">Eines de suport a les proves</a>
+<ul>
+<li><a href="#eines-de-cobertura">Eines de cobertura</a></li>
+<li><a href="#eines-de-capturareproducci%C3%B3">Eines de captura/reproducció</a></li>
+<li><a href="#el-proc%C3%A9s-de-proves">El procés de proves</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- pagebreak -->
+<h1 id="1-introducci%C3%B3-a-lenginyeria-del-software">1. Introducció a l'enginyeria del software</h1>
+<h2 id="introducci%C3%B3-a-lenginyeria-del-software">Introducció a l'enginyeria del software</h2>
+<ul>
+<li>El software no s'espenya, es deteriora. Mentre que el hardware si que s'espenya.</li>
+<li>Errors més comuns:
+<ul>
+<li>Augment de la complexitat dels sistemes informàtics.</li>
+<li>Mal ús dels mètodes d'enginyeria del software.</li>
+</ul>
+</li>
+</ul>
+<h2 id="desenvolumpament-de-software-profesional">Desenvolumpament de software profesional</h2>
+<ul>
+<li>
+<h4 id="qu%C3%A8-%C3%A9s-el-software">Què és el software?</h4>
+<p>Programes d'ordinador amb la seva &quot;documentació&quot; associada. Els productes de software poden anar destinats a un client en particular o al mercat general.</p>
+</li>
+<li>
+<h4 id="qu%C3%A8-%C3%A9s-lenginyeria-del-software">Què és l'enginyeria del software?</h4>
+<p>És una disciplina d'enginyeria que tracta tots els aspectes de la producció de software que inclou tècniques de suport a l’especificació, el disseny i l’evolució de les aplicacions informàtiques però també inclou tècniques que poden no ser adequades en un desenvolupament de software individual.</p>
+</li>
+<li>
+<h4 id="costs">Costs</h4>
+<p>Aproximadament: 60% Desenvolupament, 40% Proves</p>
+</li>
+<li>
+<h4 id="quines-s%C3%B3n-les-millors-t%C3%A8cniques-i-m%C3%A8todes-denginyeria-del-software">Quines són les millors tècniques i mètodes d'enginyeria del software?</h4>
+<p>No hi ha a causa de la diversistat del camp. Hi ha molts de tipus diferents de sistemes i cada un requereix d'eines i tècniques apropiades pel seu desenvolupament.</p>
+</li>
+<li>
+<h4 id="tipus-de-productes-de-software">Tipus de productes de software</h4>
+<ul>
+<li>Productes genèrics:<br>
+Sistemes independendents que venen a qualsevol client que els vulgui adquirir i per tant l'especificació i les decisions sobre canvis del software és propietat del desenvolupador.</li>
+<li>Productes personalitzats:<br>
+Softwatre que es personalitza per a un client concret. Ha de satisfer les necessitats específiques del client i les decisions sobre canvis del software és propietat del client.</li>
+</ul>
+</li>
+<li>
+<h4 id="atributs-essencials-del-software">Atributs essencials del software</h4>
+<ol>
+<li><u>Facilitat de mantenient:</u> El software s'ha d'escriure de tal manera que pugui evolucionar per satisfer les necessitats canviants dels clients. Atribut crítica, que els canvis en el software són un requisit inevitable.</li>
+<li><u>Confiança i seguretat:</u> La confiança inclou un conjunt de característiques tal com la fiabilitat i la seguretat (security &amp; safety). Els sistemes no han de causar danys físics o econòmics en cas de falla. També han de controlar l'accés a usuaris no autoritzats.</li>
+<li><u>Eficiència:</u> El software no ha de malgastar recursos.</li>
+<li><u>Acceptabilitat:</u> El software ha de ser acceptat pels diferents tipus d'usuaris pels quals s'ha dissenyat.</li>
+</ol>
+</li>
+<li>
+<h4 id="principis-d%C3%A8tica">Principis d'ètica</h4>
+<p>Les assosicacions professionals publiquen codis de conducta on s'exposen els estàndards de comportament dels seus membres.</p>
+</li>
+</ul>
+<!-- pagebreak -->
+<h1 id="2-processos-de-software">2. Processos de software</h1>
+<h2 id="part-i---models-de-processos-de-software">Part I - Models de processos de software</h2>
+<h3 id="proc%C3%A9s-de-software">Procés de software</h3>
+<p>Els processos de software són les activitats involucreades en la producció d'un sistema de software. Els models de processos de software són representacions abstractes d'aquests processos.</p>
+<ul>
+<li>Activitats:
+<ul>
+<li><u>Especificació:</u> definició de la funcionalitat i les restriccions del software.</li>
+<li><u>Disseny i implementació:</u> creació del software que satisfà les seves especifiacions.</li>
+<li><u>Validació:</u> el sofware s'ha de validad per assegurar que satisfà les necessitats del client.</li>
+<li><u>Evolució:</u> el software ha d'evolucioar per adaptar-se a les necessitats del client.</li>
+</ul>
+</li>
+</ul>
+<h3 id="descripcions-de-processos-de-software">Descripcions de processos de software</h3>
+<ul>
+<li>Per descriure un procés parlam de les activitats que inclou, pero també pot incloure:
+<ul>
+<li><u>Productes:</u> que són les sortides d'una activitat del procés</li>
+<li><u>Rols:</u> que mostren la responsabilitat de les persones implicades en el procés.</li>
+<li><u>Pre-condicions i post-condicions:</u> que són declaracions vàlides abans i després d'una activitat del procés.</li>
+</ul>
+</li>
+</ul>
+<h3 id="isoiec-12207---est%C3%A1ndar-sobre-el-ciclo-de-vida-del-software"><a href="https://es.wikipedia.org/wiki/ISO/IEC_12207">ISO/IEC 12207 - Estándar sobre el ciclo de vida del software</a></h3>
+<ul>
+<li>No descriu models de cicle de vida.</li>
+<li>Permet que els diferents processos es realitzin de manera concurrent.</li>
+</ul>
+<h3 id="tipus-de-processos">Tipus de processos</h3>
+<ul>
+<li><strong>Dirigits:</strong> per una planificació són aquelles en els que les activitats es planifiquen en endavant i el progrés es mesura respecte de la planificació. <u>Inclouen activitats de seguiment</u>.</li>
+<li><strong>Àgils:</strong> la planificació és incremental i es més fàcil canviar el procés per reflectir els requisits canviants dels clients.</li>
+</ul>
+<h3 id="models-de-proc%C3%A9s-de-software">Models de procés de software</h3>
+<p>Els models de processos genèrics descriuen l'organització dels processos de software.</p>
+<ul>
+<li>
+<h4 id="model-en-cascada"><strong>Model en cascada</strong></h4>
+<p><img src="images/cascada.png" alt="Modelo en cascada"></p>
+<ul>
+<li>És un model dirigit per la planificació on separa les dades d'especificació i desenvolupamnet. Una fase ha d'estar completa abans de poder passar a la següent.</li>
+<li><strong>Fases:</strong>
+<ul>
+<li>Especificació i anàlisi de requisits</li>
+<li>Disseny del software i del sistema</li>
+<li>Implementació i proves unitàries</li>
+<li>Integració i proves del sistema</li>
+<li>Operació i manteniment</li>
+</ul>
+</li>
+<li><strong>Ús:</strong> Quan els requisits s'entenen bé i sap que no es canviaran radicalment durant el disseny.</li>
+<li><strong>Avantatges:</strong>
+<ul>
+<li>La documentació produïda a cada fase fa visible el procés.</li>
+<li>Els gestors poden monitorizar el progrés respecta a la planificació.</li>
+</ul>
+</li>
+<li><strong>Inconvenients:</strong>
+<ul>
+<li>Els acords s'han de dur a terme en les etapes iniciales i es fa <strong>difícil respondre als canvis</strong></li>
+<li>Inflexibilitat (Divisió en etapes).</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- pagebreak -->
+<ul>
+<li>
+<h4 id="desenvolupament-incremental"><strong>Desenvolupament incremental</strong></h4>
+<p><img src="images/Incremental.png" alt="Modelo incremental"></p>
+<ul>
+<li>L'especificació, el desenvolupament i la validació es solapen. Pot ser dirigit per un procés de planificació o àgil.</li>
+<li><strong>Fases:</strong>
+<ul>
+<li>Especificació</li>
+<li>Desenvolupament</li>
+<li>Validació</li>
+</ul>
+</li>
+<li><strong>Ús:</strong> En un projecte petit i quan no es tenen molt clars els requisits funcionals.</li>
+<li><strong>Avantatges:</strong>
+<ul>
+<li>Es redueix el cost d'incorporar els requisits canviants del client</li>
+<li>És més fàcil obtenir feedbak del client sobre la feina de desenvolupament que s'ha fet</li>
+<li>És possible entregar i desenvolupar software útil per al client ràpidament.</li>
+</ul>
+</li>
+<li><strong>Inconvenients:</strong>
+<ul>
+<li>El procés no es visible</li>
+<li>Incorporar més canvis en el software esdevé car i difícil.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- pagebreak -->
+<ul>
+<li>
+<h4 id="enginyeria-del-software-orientada-en-la-reutilitzaci%C3%B3"><strong>Enginyeria del software orientada en la reutilització</strong></h4>
+<p><img src="images/reutilizar.png" alt="Modelo orientado a la reutilización"></p>
+<ul>
+<li>El sistema es cconstrueix assemblant components ja existents. Pot ser dirigit per un procés de planificació o àgil.</li>
+<li><strong>Fases:</strong>
+<ul>
+<li>Especificació</li>
+<li>Anàlisi dels components</li>
+<li>Modificació dels requeriments</li>
+<li>Diesseny del sistema amb reutilització</li>
+<li>Desenvolupament i integració</li>
+<li>Validació del sistema</li>
+</ul>
+</li>
+<li><strong>Ús:</strong> La a reutilització es avui el mètode estàndard per construir molts tipus de sistemes empresarials</li>
+<li><strong>Avantatges:</strong>
+<ul>
+<li>Reducció del cost i del risc, ja que es desenvolupa menys software desde zero.</li>
+<li>Lliuraments i desplegament més ràpid del sistema.</li>
+</ul>
+</li>
+<li><strong>Inconvenients:</strong>
+<ul>
+<li>Pèrdua de control sobre l'evolució dels elements reutilitzats.</li>
+<li>Cert compromís amb els requisits i pot ser que el sistema no satisfaci les necessitats reals dels usuaris.</li>
+</ul>
+</li>
+<li><strong>Flexible:</strong>
+<ul>
+<li>Els requisits es poden modificar per adaptar-los als components disponibles.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><em>A la práctica, els sistemes grans es desenvolupen seguint un procés que incorpora elements de tots aquests models.</em></p>
+<!-- pagebreak -->
+<h3 id="activitats-del-proc%C3%A9s">Activitats del procés</h3>
+<ul>
+<li>
+<p>Els processos de software real són seqüències entrellaçacdes d'activitats tècniques, col·laboratives i administratives amb l'objectiu general d'especificar, dissenyar, implementar i provar un sistema de software.</p>
+</li>
+<li>
+<p>Quatre activitats bàsiques de software:</p>
+<ol>
+<li>
+<p><strong>Especificació</strong></p>
+<ul>
+<li>És el procés on es defineixen els serveis del sistema i les restriccións del funcionament i desenvolupament.</li>
+<li>Definir les necessitats de tots els perfils dels clients.</li>
+<li>Procés d'enginyeria de requisits.</li>
+<li>Proces:
+<ul>
+<li>Obtenció i anàlisi de requisits.</li>
+<li>Especificació de requisits</li>
+<li>Validació de requisits</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Disseny</strong></p>
+<ul>
+<li>Procés de convertir l'especificació del sistema en un sistema executable.</li>
+<li>Dissenyar una estructura de software que compleixi amb l'especificació</li>
+<li><strong>Entrades de disseny:</strong>
+<ul>
+<li>Informació de la plataforma</li>
+<li>Especificació de requisits</li>
+<li>Descripció de dades</li>
+</ul>
+</li>
+<li><strong>Activitats de disseny</strong>
+<ul>
+<li><u>Disseny aquitectònic:</u> S'identifica l'estructura del Sistema, els seus principals components (mòduls o subsistemes), les seves relacions i com estan distribuïts.</li>
+<li><u>Disseny d'interfícies:</u> Es defineixen les interfíciens entre components de sistema</li>
+<li><u>Disseny i selecció de components:</u> Es cerquen components reutilitzables. Si no n'hi ha de disponibles, es creen.</li>
+<li><u>Disseny de bases de dades:</u> Es dissenya l'estructura de les dades i com es representan a la base de dades.</li>
+</ul>
+</li>
+<li><strong>Sortides de disseny</strong>
+<ul>
+<li>Arquitectura del sistema</li>
+<li>Especificació de la base de dades</li>
+<li>Especificació de la interfície</li>
+<li>Especificcació de components</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p><strong>Implementació</strong></p>
+<ul>
+<li>Les activitats de disseny i implementació están molt relacionades i es poden solapar</li>
+<li>La programació és una activitat indivitual i no compta amb un procés estàndard</li>
+<li>La depuracio (debugging) consisteix en trobar error i corregir-los.</li>
+</ul>
+</li>
+<li>
+<p><strong>Validació</strong></p>
+<ul>
+<li>La validació de software és el procés de comprovar que el sistema es conforme amb la seva especificació o satisfà les necessitats reals dels seus usuaris.</li>
+<li>Inclou provar el sistema i avaluar i revisar els processos.</li>
+<li>Les proves del sistema impliquen executar el sistema amb casos de prova.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+<h3 id="canvis">Canvis</h3>
+<p>L'evolució del software té lloc quan es canvia un software existent per satisfer nous requisits. El software ha d'evolucionar per continuar sent útil</p>
+<ul>
+<li>
+<p>Els canvis són inevitavles i a més a més en projectes de sofware.</p>
+</li>
+<li>
+<p>Els canvis empresarials poden donar lloc a canvis en els requisits a nous requisits.</p>
+</li>
+<li>
+<p><strong>Reducció del cost</strong></p>
+<ul>
+<li>Anticipar-se als canvis: El procés de software inclou activitats que poden anticipar possivles canvis.</li>
+<li>Tolerància als canvis: El procés està dissenyat de tal manera que els canvis es poden incorporar a un cost relativament baix.</li>
+</ul>
+</li>
+<li>
+<p><strong>Maneres d'afrontar canvis</strong></p>
+</li>
+<li>
+<h4 id="prototipus-del-sistema"><strong>Prototipus del sistema:</strong></h4>
+<p>Una versió del sistema o d'una part del sistema es desenvolupa ràpidament per avaluar els sequisits del client i la viabilitat de les decisions de disseny. Aques mètode es basa en l'anticipació.</p>
+<ul>
+<li>El <strong>prototipus</strong> és una versió inicial d'un sistema que s'empra per demostrar els conceptes i provar opcions de disseny, Es pot emprar en:
+<ul>
+<li><u>El procés d'enginyeria de requisits:</u> per ajudar a l'obtencio i validació dels requisits.</li>
+<li><u>El procés de disseny:</u> per explorar opcions i desenvolupar el disseny de la interfície.</li>
+</ul>
+</li>
+<li><strong>Beneficis</strong>
+<ul>
+<li>Millora la usabilitat del sistema</li>
+<li>Millora la qualitat del disseny</li>
+<li>Millora la facilitat de manteniment</li>
+<li>Redueix l'esforç de desenvolupament</li>
+</ul>
+</li>
+<li>Pot ser que el prototipus no inclogui gestió d'errors.</li>
+<li>Es centra en els <u>requisits funcionals</u> en comptes dels no funcionals (per exemple, seguretat i fiabilitat).</li>
+<li>Els prototipus s'han de descartar després del desenvolupament, ja que no són una bona base per a un sistema de producció.</li>
+</ul>
+</li>
+<li>
+<h4 id="entrega-incremental"><strong>Entrega incremental:</strong></h4>
+<p>Els increments del sistema s'entreguen al client perquè pugui expermientar amb ells i fer comentaris. Aquest mètode es basa en la <u>tolerància als canvis</u> i com evitar-los</p>
+<ul>
+<li>En lloc d'entregar el sistema en una única entrega, el desenvolupament i l'entrega se separen en increments.</li>
+<li>Els requisits d'usuari es prioritzen i els més prioritaris s'inclouen en els primers increments.</li>
+<li>Una vegada ha començat el desenvolupamment d'un nou increment, els requisits es congelen per a futurs increments.</li>
+<li><strong>Desenvolupament incremental</strong>
+<ul>
+<li>Es basa en desenvolupar el sistema mitjançant increments i avaluar cada increment abans de passar al següent increment.</li>
+<li>Enfocar per ser empran en mètodes àgils.</li>
+</ul>
+</li>
+<li><strong>Entrega incremental</strong>
+<ul>
+<li>Deplegar un increment per a que els usuaris finals el puguin emprar</li>
+<li>Avaluació més realista sobre l'ús del software en la pràctica</li>
+<li>Difícil d'implementar en el cas d'un nou sistema que substitueixi a un sistema anterior ja que els increments ofereixen menys funcionalitats que el sistema reemplaçat.</li>
+</ul>
+</li>
+<li><strong>Avantatges</strong>
+<ul>
+<li>Amb cada increment s'aporta valor al client oferint una nova funcionalitat</li>
+<li>Els primers increments poden servir com a prototipus per ajutar a obtenir nous requisits</li>
+<li>El projecte té menys risc de fracàs</li>
+<li>Els serveis més prioritaris son els que més se proven.</li>
+</ul>
+</li>
+<li><strong>Inconvenients</strong>
+<ul>
+<li>L'especificació es desenvolupa conjuntament amb el sofware (no hi ha una especificació inical fixa)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<!-- pagebreak -->
+<h2 id="part-ii---m%C3%A8todes-%C3%A0gils">Part II - Mètodes àgils</h2>
+<h3 id="desenvolupament-%C3%A0gil">Desenvolupament àgil</h3>
+<p>L'objectiu del desenvolupament àgil es reduir el temps d'entrega del sistemes de software.</p>
+<ul>
+<li>L'especificació, el disseny i la implementació estan entrellaçades.</li>
+<li>El sistema es desenvolupa com a una sèrie de versions o increments amb els participants involucrats en l'especificació i avaluació de les versions.</li>
+<li>Documentació mínima, se centren en el codi.</li>
+<li>Entregues freqüents de noves versions per a la seva avaluació.</li>
+</ul>
+<h3 id="m%C3%A8todes-%C3%A0gils">Mètodes àgils</h3>
+<ul>
+<li>Se centren en el codi enlloc del disseny</li>
+<li>Es basen en un mètode interactiu</li>
+<li>Tenen com a propòsit reduir la despesa del procés de software, limitant la documentació sent capaços de responde ràpidament a canvis sense una feina excessiva.</li>
+<li><strong>Principis:</strong>
+<ul>
+<li>Participació del client</li>
+<li>Entrega incremental</li>
+<li>Persones, no processos (mitjançant programaciço en parelles, propietat col·lectiva i evitant jornades de feina excessives.)</li>
+<li>Adoptar canvis</li>
+<li>Mantenir la simplicitat</li>
+</ul>
+</li>
+<li><strong>Aplicabilitat:</strong> S'aplica a empreses de sofware que desenvolupen un producte petit o mitjà.</li>
+</ul>
+<h3 id="t%C3%A8cniques-de-desenvolupament-%C3%A0gil">Tècniques de desenvolupament àgil</h3>
+<ul>
+<li>
+<h4 id="programaci%C3%B3-extrema---xp"><strong>Programació extrema - XP</strong></h4>
+</li>
+</ul>
+<p><img src="images/Extrema.png" alt="Modelo programación exrema"></p>
+<ul>
+<li>
+<p>Un mètode àgil que va tenir molta influència en els 90s. Introdueix tota una sèrie de tècniques àgils.</p>
+</li>
+<li>
+<p><strong>Pràctiques clau:</strong></p>
+<ul>
+<li>Històries d'usuari</li>
+<li>Refactorització</li>
+<li>Planificar les proves</li>
+<li>Programació en parelles</li>
+</ul>
+</li>
+<li>
+<p><strong>Pràctiques de XP:</strong></p>
+<ul>
+<li>Planificació incremental</li>
+<li>Entregues petites</li>
+<li>Disseny simple</li>
+<li>Planificar primer les proves</li>
+<li>Entorn automàtic per escriure el procés per a noves funcionalitats</li>
+<li>Refactorització de codi</li>
+<li>Programació en parellees</li>
+<li>Propietat col·lectiva (els desenvolupadors treballen en totes les àrees del sistema)</li>
+<li>Integració continuada (tot d'una que una tasca està completa s'integra en el sistema)</li>
+<li>Jornades de treball productives (no massa llargues)</li>
+<li>Participació del client</li>
+</ul>
+</li>
+<li>
+<h4 id="scrum"><strong>Scrum</strong></h4>
+</li>
+</ul>
+<p><img src="images/scrum.png" alt="Método Scrum"></p>
+<ul>
+<li>Scrum és un mètode àgil que se centra en gestionar el desenvolupament iteratiu enlloc
+de centrar-se en aspectes tècnics específics.</li>
+<li>Es centra en un conjunt de sprints que són períodes de temps prefixats durant el que es
+desenvolupa un increment del sistema.</li>
+<li><strong>Fases:</strong>
+<ol>
+<li><u>Fase inicial:</u> és una planificació d'alt nivell en la que es defineixen els objectius generals del projecte i es dissenya una arquitectura de software.</li>
+<li><u>Fase intermitja:</u> es duen a terme sèries de cicles (sprints). En cada sprint es desenvolupa un increment del sistema.</li>
+<li><u>Fase final:</u> es completa la documentació i s'avaluen les lliçons apreses durant el projecte.</li>
+</ol>
+</li>
+<li><strong>Un cicle / <em>sprint</em></strong>
+<ul>
+<li>Duració entre 2 i 4 setmanes</li>
+<li>El punt de partida per a la planificació es el product backlog que es la llista de feina a fer.</li>
+<li>Durant la fase de selecció tot l'equip del projecte treballa amb el client per seleccionar les característiques i la funcionalitat del product backlog a desenvolupar durant l'esprint.</li>
+</ul>
+</li>
+<li>Beneficis
+<ul>
+<li>El producte es divideix en una llista de parts que es puguien entendre i gestionar amb facilitat</li>
+<li>tot l'equip té visibilitat de tot i la comunicació entre membres millora</li>
+<li>Els clients veuen l'entrega d'increments i obtenen feedback de com funciona el producte</li>
+<li>Es crea un clima de confiança entre clients i desenvolupadors. Es cre una cultura positiva en la qual tots esperen que el producte sigui exitós.</li>
+</ul>
+</li>
+</ul>
+<!-- pagebreak -->
+<h1 id="3-enginyeria-de-requisits">3. Enginyeria de requisits</h1>
+<p>El procés de descobrir,analitzar,documentarirevisar els serveixiles restriccions d'un sistema. Un projecte de software és bàsicament la transformació d'un conjunt de requisits en un sistema informàtic. Establir amb exactitud els requisits d'un sistema és un principi essencial per dur a terme amb èxit un desenvolupament de software.</p>
+<h2 id="requisits-funcionals-i-no-funcionals">Requisits funcionals i no funcionals</h2>
+<ul>
+<li>
+<h3 id="requisits-dun-sistema">Requisits d'un sistema</h3>
+<p>Descripcions que el sistema hauria de fer. En aquests requisits es reflecteixen les <strong>necessitats dels clients cap el sistema</strong></p>
+</li>
+<li>
+<h3 id="requisits-dusuari">Requisits d'usuari</h3>
+<p>Són definicions en el llenguatge natural i diagrames que mostren els serveis que s'espera que el sistema proporcioni als usuarios i també les restriccions que aquest té.</p>
+</li>
+<li>
+<h3 id="requisits-en-els-m%C3%A8todes-%C3%A0gils">Requisits en els mètodes àgils</h3>
+<ul>
+<li><u><strong>Requisits fucionals:</strong> </u>són afirmacions sobre els serveis que el sistema ha de proporcionar o són descripcions de com s'han de dur a terme determinats càlculs.</li>
+<li><u><strong>Requisits no funcionals:</strong></u> restriccions dels serveis o funcions que el sistema ofereix. Inclouen restriccions temporals, restriccions del procés de desenvolupament i restriccions imposades per estàndards. Normalment fan referència al sistema en la seva totalitat, en comptes de característiques o serveis individuals del sistema.<br>
+<strong>Classificació de requisits no funcionals:</strong>
+<ul>
+<li><u>Requisits del producte:</u> Especifiquen o restringeixen el comportament del software. Per exemple: requisits de rendiment, temps de resposta, fiabilitat, seguretat o usabilitat.</li>
+<li><u>Requisits de l'organització:</u> Requisits de sistema derivats de polítiques i procediments en l'empresa del client i del desenvolupador. Per exemple: mediambientals, estàndards de processos, etc.</li>
+<li><u>Requisits externs:</u> Requisits derivats de factors externs al sistema i el seu procés de desenvolupament. Per exemple: ètics, regulatoris, legislatius, etc.<br>
+
+<br>
+
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="images/req_no_funcionales.png" alt="Requisitos no funcionales"></p>
+<h2 id="processos-denginyeria-de-requisits">Processos d'enginyeria de requisits</h2>
+<p>Els processos d'enginyeria de requisits varien depenent del domini de l'aplicació, les persones implicades i l'empresa de desenvolupament. Les activitats genèriques són:</p>
+<ul>
+<li>Adquisició i anàlisi de requisits (descobrir els requisits)</li>
+<li>Especificació de requisits</li>
+<li>Validacció de requisits</li>
+<li>Gestió de requisits</li>
+</ul>
+<p>A la pràctica es tracta d'un procés iteratiu en el qual aquestes activitats se solapen.</p>
+<h2 id="adquisici%C3%B3-i-an%C3%A0lisi-de-requisits">Adquisició i anàlisi de requisits</h2>
+<p>Hi ha diverses tècniques d'adquisició de requisits com les entrevistes o l'etnografia. Les històries d'usuari i els escenaris s'empren per promoure la discussió entre els participants.</p>
+<h3 id="fases">Fases</h3>
+<ol>
+<li>Descobriment de requisits: Interactuar amb els participants del sistema per descobrir els seus requisits.</li>
+<li>Classificació i organització de requisits: Agrupar els requisits relacionats i organitzar-los en grups coherents.</li>
+<li>Priorització de requisits: Prioritzar els requisits, trobar i resoldre conflictes mitjançant la negociació.</li>
+<li>Especificació de requisits: Els requisits es documenten i entren en la següent volta de l'espiral.</li>
+</ol>
+<p><img src="images/esprial_RNF.png" alt="Espiral requisits no funcionals"></p>
+<h3 id="document-de-requisits-de-software">Document de requisits de software</h3>
+<ul>
+<li>Es la declaració oficial del que s'ha de desnevolupar</li>
+<li>Ha d'incloure tant la definició dels requisits d'usuari com l'especificació dels requisits de sistema
+<ul>
+<li>Els requisits de sistema son emprats pels enginyers de software com a punt de partida per dissenuyar el sistema.</li>
+</ul>
+</li>
+<li><strong>Ha de especificar qué ha de fer el sistema, però no com.</strong></li>
+<li>No és un document de disseny</li>
+</ul>
+<h3 id="tipus-de-t%C3%A8cniques-de-documentaci%C3%B3">Tipus de tècniques de documentació</h3>
+<ul>
+<li><strong>Plantilla per a una especificació estructurada</strong></li>
+<li><strong><em>User stories</em></strong></li>
+<li><strong>Diagrama de casos d'ús</strong>: Aquest representa els requisits funciunals, d'usuari i de sistema on els elements que tenim son els usuaris que interactuen amb el sistema, l'usuari final no sempre ha de ser humà. També apareixen les diferents funionalitats dels usuaris</li>
+</ul>
+<h2 id="validaci%C3%B3-de-requisits">Validació de requisits</h2>
+<h3 id="t%C3%A8cniques-de-validaci%C3%B3-de-requisits">Tècniques de validació de requisits</h3>
+<ul>
+<li><u>Revisions de requisits:</u> Anàlisi manual sistemàtic dels requisits.</li>
+<li><u>Prototipat:</u> Emprar un model executable del sistema per avaluar els requisits.</li>
+<li><u>Generació de casos de prova:</u> Desenvolupar proves per als requisits.</li>
+</ul>
+<h2 id="canvis-en-els-requisits">Canvis en els requisits</h2>
+<p>Els canvis empresarials i tècnics inevitablement provoquen canvis en els requisits dels sistemes de software. La gestió de requisits és el procés de gestionar i controlar aquests canvis.</p>
+<!-- pagebreak -->
+<h1 id="4-modelat-del-sistema">4. Modelat del sistema</h1>
+<h2 id="modelat">Modelat</h2>
+<h3 id="maneres-demprar-un-model">Maneres d'emprar un model</h3>
+<ul>
+<li>Com a mitjà per discutir sobre un sistema existent o sobre una proposta d'un nou sistema</li>
+<li>Per documentar un sistema existent</li>
+<li>Com a una descripció detallada que es pot emprar per duir a terme la implementació d'un sistema.</li>
+</ul>
+<h3 id="tipus-de-diagrames-uml">Tipus de diagrames UML</h3>
+<h4 id="diagrama-de-casos-d%C3%BAs">Diagrama de casos d'ús</h4>
+<ul>
+<li>Es cemtra en mostrar la funcionalitat d'un sistema informàtic.</li>
+<li>Interaccions entre el sistema i el seu entorn</li>
+<li>Rempresenta els requisits funcionals i d'usuari</li>
+<li>També hi ha requisits de sistema</li>
+<li>El conjunt de casos d'us descriu les interaccions possibles del sistema.</li>
+</ul>
+<h4 id="diagrames-de-seq%C3%BC%C3%A8ncia">Diagrames de seqüència</h4>
+<ul>
+<li>Detallen un cas d'ús</li>
+<li>Interaccions entre els actors i entre els components del sistema</li>
+</ul>
+<h4 id="diagrames-de-classes">Diagrames de classes</h4>
+<ul>
+<li>Classes d'objectes en el sistema i associacions entre aquestes classes</li>
+<li>S'empren en el desenvolupament d'un sistema orientat a objectes per modelar les classes del sistema i les associacions entre elles.</li>
+<li>Quan desenvolupam models durant les etapes inicials del procés d'enginyeria del software, els objectes representen alguna cosa del món real.</li>
+</ul>
+<h4 id="diagrames-destats">Diagrames d'estats</h4>
+<ul>
+<li>Modelen el comportament del sistema com a resposta a esdeveniments interns i externs</li>
+</ul>
+<h2 id="models">Models</h2>
+<h3 id="tipus-de-models">Tipus de models</h3>
+<h4 id="models-de-context">Models de context</h4>
+<p>Mostren el que hi ha fora dels límits del sistema. Els models arquitectònics mostren el sistema i les seves relacions amb altres sistemes. Per representar-los s'empren <u>els models d'activitats</u></p>
+<h4 id="models-dinteracci%C3%B3">Models d'interacció</h4>
+<p>Ajuda a identificar els requisits d'usuari:
+- <u>Casos d'us:</u> Modelat de la interacció <strong>entre el sistema i els actors externs</strong>.
+- <u>Diagrames de seqüència:</u> Modelat de la interacció <strong>entre components del sistema</strong>.
+Els casos dús i els diagrames de seqüència modelen interaccions en diferents nivells de detall.</p>
+<h4 id="models-estructurals">Models estructurals</h4>
+<p>Mostren l'organització d'un sitema com pot ser el diagrama de classes. Poden ser:</p>
+<ul>
+<li><u>Models estàtics</u>: Mostren l'estructura del disseny del sistema</li>
+<li><u>Models dinàmics</u>: Mostren l'organització del sistema en temps d'execució.</li>
+</ul>
+<h4 id="models-de-comportament">Models de comportament</h4>
+<ul>
+<li>Dades que arriben al sistema i que han de ser procesades</li>
+<li>Esdeveniments que disparen el processament del sistema</li>
+</ul>
+<!-- pagebreak -->
+<h1 id="5-disseny">5. Disseny</h1>
+<h2 id="part-i---indroducci%C3%B3">Part I - Indroducció</h2>
+<h3 id="model-general-del-proc%C3%A9s-de-disseny">Model general del procés de disseny</h3>
+<p>Definit en l'apartat 2 de <a href="#activitats-del-proc%C3%A9s">Activitats del procés</a></p>
+<h3 id="activitats-del-proc%C3%A9s-de-disseny">Activitats del procés de disseny</h3>
+<ul>
+<li>Els requisits no funcionals tenen un fort impacte en el disseny. Si es fa sense cap model, probablement no hi seran tots els requisits no funcionals.</li>
+</ul>
+<p>
+</p>
+<ul>
+<li>
+<h4 id="tipus-de-dissenys">Tipus de dissenys</h4>
+<ul>
+<li>Disseny arquitectònic: S'identifica l'estructura del sistema, els seus principals components (subsistemes o mòduls), les seves relacions i com estan organitzats.</li>
+<li>Disseny de la base de dades: Es dissenya l'estructura de les dades i com aquestes es representaran en la base de dades</li>
+<li>Disseny de la interfície: Es defineixen les interfícies entre components del sistema.</li>
+<li>Selecció i disseny de components: Se cerquen components reutilitzables. Si no, hi ha disponibles, es dissenyen components nous.</li>
+</ul>
+</li>
+</ul>
+<h3 id="import%C3%A0ncia-del-disseny">Importància del disseny</h3>
+<p><strong>Qualitat:</strong> Una aplicació es millor quan se sastifan tots els requisits no funcionals.</p>
+<ul>
+<li>
+<h4 id="disseny-de-qualitat">Disseny de qualitat</h4>
+<ul>
+<li>Ha de tenir una <strong>aquitectura</strong>, seguint estils o patrons arquitectònics, amb bons components i que es pugui implementar seguint un procés evolutiu.</li>
+<li>Ha de ser <strong>modular</strong></li>
+<li>Ha de contenir <strong>diferents representacions</strong> de: dades, arquitectura, interfícies i components</li>
+<li>S'ha d'obtenir mitjançant un <strong>mètode repetible</strong>, motivat per l'informació obtinguda durant l'anàlisi</li>
+<li>S'ha de representar amb una notació adequada que plasmi el seu significat.</li>
+</ul>
+</li>
+<li>
+<h4 id="atributs-de-qualitat">Atributs de qualitat</h4>
+<ol>
+<li>Funcionalitat</li>
+<li>Usabilitat</li>
+<li>Confiabilitat</li>
+<li>Rendiment</li>
+<li>Facilitat de manteniment</li>
+</ol>
+</li>
+</ul>
+<h3 id="conceptes-de-disseny">Conceptes de disseny</h3>
+<ul>
+<li>Abstracció: Permet plantejar molts de nivells d'abstracció de més a menys</li>
+<li>Arquitectura:
+<ul>
+<li>Disseny de més alt nivell de l'estructura d'un sistema</li>
+<li>Defineis de manera abstracta els components del sistema i les seves interfícies</li>
+<li><strong>Objectius:</strong> manteniment, flexibilitat, interacció amb altres sitemes</li>
+<li><strong>Restriccions</strong> derivades de les tecnologies disponibles.</li>
+</ul>
+</li>
+<li>Modularitat: El software es divideix en components</li>
+<li>Ocultament d'informació: És important distingir entre els tipus d'usuaris i els seus privilegis davant l'informació proporcionada pel software.</li>
+<li>Independencia funcional
+<ul>
+<li>Els mòduls independents són més fràgils de desenvolupar, de provar i de mantenir</li>
+<li>Es cerca augmentant la cohesió dels mòduls i disminuint l’acoblament entre ells.</li>
+<li>Criteris:
+<ol>
+<li>Cohesió: Indicador del grau en què un mòdul se centra en fer una sola cosa. És important evitar mòduls amb funcions no relacionades i que un component realitzi múltiples funcions.</li>
+<li>Acoblament / Acoplament: Indicador del grau en què un mòdul està conectat amb altres i amb el món exterior. Es cerca el mínim acoblament possible.</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="part-ii---disseny-de-la-iu">Part II - Disseny de la IU</h2>
+<h3 id="usabilitat">Usabilitat</h3>
+<ul>
+<li>És un dels criteris d'acceptació mñes importants de les aplicacions interactives</li>
+<li><a href="https://www.insst.es/documents/94886/96076/Manual+de+normas+t%C3%A9cnicas+para+el+dise%C3%B1o+ergon%C3%B3mico+de+puestos+con+pantallas+de+visualizaci%C3%B3n/b4818262-f8ba-4ddd-9c49-9e7d6ea4ce62">ISO/IEC 9241-1:1997</a>: Grau en què un producte pot ser emprar per uns usaris esècífics en un determinat context d'ús per cumplir amb uns objectius concrets de manera efectiva, eficient i satisfactòria. Objectius:
+<ul>
+<li>Efectiva: completa i de manera exacta</li>
+<li>Eficient: amb un cost justificable</li>
+<li>Satisfactòria: amb una actitud positiva en l'ús del producte per part de l'usuari</li>
+</ul>
+</li>
+</ul>
+<h3 id="regles-b%C3%A0siques">Regles bàsiques</h3>
+<ul>
+<li>Pensar en les persones que l'han d'emprar.</li>
+<li>Les aplicacions son emprades per persones diferents, amb diferents nivells de coneixements, i resolen problemes de tots els tipus, i s'executen a múltiples entorns.</li>
+<li>No hi ha una interfícien única i vàlida per a tots els casos.</li>
+<li>No hem de dissenyar per nosaltres, sinóp pels que han de ser usuaris</li>
+</ul>
+<h3 id="bones-pr%C3%A0ctiques-de-disseny-de-la-iu">Bones pràctiques de disseny de la IU</h3>
+<ol>
+<li>Mantenir la simplicitat
+<ul>
+<li>Les millors IU són pràcticament invisibles a l'usuari</li>
+</ul>
+</li>
+<li>Feedback immediat
+<ul>
+<li>El feedback ayuda als usuaris a:
+<ul>
+<li>Entendre el que està fent l'aplicació</li>
+<li>Descobrir qué poden fer després</li>
+<li>Entendre el resultat de les seves accions</li>
+</ul>
+</li>
+<li>Millora la satisfacció d'usuari</li>
+</ul>
+</li>
+<li>Informació visual</li>
+<li>Reduir la càrega de memòria
+<ul>
+<li>Fer que l'usuario hagi de recordar el mínim possible i així reduir la probabilitat de que cometi errors</li>
+<li>Revelar la informació de manera progressiba.</li>
+</ul>
+</li>
+<li>Crear consistència i emprar elements comuns
+<ul>
+<li>La IU ha de presentar i obtenir informació de manera consistent. Respectant les regles de disseny en totes les pantalles.</li>
+<li>Tipus de consistència:
+a) <strong>Interna:</strong> dins de la mateixa aplicació
+b) <strong>Externa:</strong> amb relació a altres aplicacions del mateix entorn</li>
+</ul>
+</li>
+<li>Distribuir els elements de manera adequada
+<ul>
+<li>No massa elements ni pantalles massa cargades</li>
+<li>Agrupació de la informació dels elements semblants, també amb colors semblants</li>
+<li>Remarcar certa informació</li>
+<li>Situacó i seqüència de la informació seguint el principi de Gutenberg (d'esquearra a dreta i de dalt a abaix)</li>
+</ul>
+</li>
+<li>Emprar color i textura extratègicament
+<ul>
+<li>No fer un ús excessiu. Límit de 5 colors aprox.</li>
+</ul>
+</li>
+<li>Selecció de paralules i termes. Missatges
+<ul>
+<li>Paraules o sentències amb una única interpretació, explícita en l'acció que es realitza. Termes concisos.</li>
+<li>Evitar detalls innecessaris</li>
+<li>Missatges específics</li>
+</ul>
+</li>
+</ol>
+<h3 id="proc%C3%A9s">Procés</h3>
+<ol>
+<li>Han de descriure la situaciío en un llenguatge que pugui ententre l'usuari, no el programador.</li>
+<li>Recopilar i analitzar la informació de l'usuari:
+<ul>
+<li><strong>Tipus d'usuaris del sistema:</strong> Entorn físic, social i cultural</li>
+<li><strong>Tasques que han de fer</strong> i com les farà l'usuari</li>
+<li><strong>Necessitats i requisits</strong> dels usuaris</li>
+</ul>
+</li>
+<li>Disseny de la interfície d'usuarui. <strong>Refinament successiu</strong> (Molt visual)
+<ul>
+<li>Definir <strong>criteris d'usabilitat</strong></li>
+<li>Decidir les <strong>representacions visuals</strong> dels objectes: icones, vistes, menús, finestres, etc.</li>
+<li>Definir com es realitzaran les tasques i accions.</li>
+</ul>
+</li>
+</ol>
+<!-- pagebreak -->
+<h2 id="part-iii---disseny-arquitect%C3%B2nic">Part III - Disseny arquitectònic</h2>
+<h3 id="introducci%C3%B3">Introducció</h3>
+<p>L'arquitectura d'un sistema afecta al rendiment, la robustesa i la facilitat de manteniment. Els requisits no funcionals depenen totalment de l'arquitectura, dels components individuals i de la manera en la que aquest estan organitzats i es comuniquen</p>
+<ul>
+<li>
+<h4 id="estructura-del-sistema">Estructura del sistema</h4>
+<ul>
+<li>Apareixen els components principals del sistema</li>
+<li>Es poden apreciar les relacions entre components (interfícies)</li>
+</ul>
+</li>
+<li>
+<h4 id="primera-etapa-del-proc%C3%A9s-de-disseny">Primera etapa del procés de disseny</h4>
+<ul>
+<li>Ellaç crític entre el disseny i l'enginyeria de requisits</li>
+<li>El model arquitectònic descriu com el sistema està organitzar en component que es comuniquen entre ells</li>
+</ul>
+</li>
+</ul>
+<h3 id="avantatges-de-larquitectura">Avantatges de l'arquitectura</h3>
+<ul>
+<li><strong>Comunicació entre stakeholders:</strong> L'arquitectura és una presentació d'alt nivell que es pot emprar per fomentar la idscussió entre les diferents parts interesades</li>
+<li><strong>Anàlisi de sistema:</strong> Fer l'arquitectura explícita en les etapes inicials del desenvolupament requereix un anàlisi</li>
+<li><strong>Reutilització:</strong> L'aquitectura d'un sistema sovint es la mateixa entre sistemes similars</li>
+</ul>
+<h3 id="requisits-no-funionals">Requisits no funionals</h3>
+<ul>
+<li><strong>Rendiment:</strong> utilitzar components grans per reduir el nombre de comunicacions</li>
+<li><strong>Secuirty:</strong> Estructurar els nivells protegint les dades, accessos, etc.</li>
+<li><strong>Safety:</strong> Fer que les operacions crítiques es realitzin en un mateix component per pacilitar el cost i les proves de validació</li>
+<li><strong>Disponibilitat:</strong> Incloure components redundants per poder reemplaçar i actualitzar sense aturar el sistema</li>
+<li><strong>Facilitat de manteniment:</strong> Components independents</li>
+</ul>
+<h3 id="les-41-vistes-de-kruchten">Les 4+1 vistes de Kruchten</h3>
+<p>L'arquitectura d'un sistema es decriu mitjançant 4 vistes complementàries més una vista addicional de casos d'ús que complementa la informaciói de les altres quatre:</p>
+<ol>
+<li>Vista dels processos: Mostra com el software executa els diferents processos</li>
+<li>Visa d'implementació: Com el software es descompon en components que implementarà un únic programador o equip del programador</li>
+<li>Vista lògica: Abstarcció del sistema com a objectes i classes d'objectes. es possible relacionar els requisits funcionals del sistema</li>
+<li>Vista física: Hardware del sistema i distribució dels components de sobtware entre els diferents processadors</li>
+<li>Vista de casos d'us:</li>
+</ol>
+<p><img src="images/casos_uso.png" alt="Vista casos de uso"></p>
+<h3 id="patrons-aquitect%C3%B2nics">Patrons aquitectònics</h3>
+<p>Un patró arquiettònic descriu l'orcanitació d'un sistema que s'ha estat emprant amb èxit a sistemes anteriors</p>
+<h4 id="1-patr%C3%B3-model-view-controller">1. Patró Model-View-Controller</h4>
+<p>Separa la presentació i l'interacció de l'usuario amb les dades del sistema
+a) <strong>Model:</strong> representació específica de la informació
+b) <strong>View:</strong> presenta un model en un format adecuat per interactuar, <u>habitualment la IU</u>
+c) <strong>Controller:</strong> controla la interacció amb l'usuari</p>
+<ul>
+<li><strong>Ús</strong>
+<ul>
+<li>S'empra quan hi ha moltes maneres de visualizar i interactuar sobre les dades</li>
+<li>S'empra quan es desconeixen els requisits futurs sobre la interacció i la presentació de dades</li>
+</ul>
+</li>
+<li><strong>Avantatges</strong>
+<ul>
+<li>Permet modificar les dades independentment de la seva repersentació i viceversa</li>
+<li>Permet presentar les dades de formes diferents</li>
+</ul>
+</li>
+<li>Inconvenients
+<ul>
+<li>Codi pot resultar més complex</li>
+</ul>
+</li>
+</ul>
+<h4 id="2-patr%C3%B3-aquitectura-en-capes">2. Patró Aquitectura en capes</h4>
+<p>Organitza el sistema en capes. Cada capa només es basa en el serveis que li serveix la capa immediatament inferior. Arquitectura molt portable.</p>
+<ul>
+<li><strong>Ús</strong>
+<ul>
+<li>Es construeixen noves funcionalitats sobre sistemes ja existents</li>
+</ul>
+</li>
+<li><strong>Avantatges</strong>
+<ul>
+<li>Permet substituir una capa completament mantenint la interfície</li>
+<li>Facilitats per a la redundància (disponibilitat)</li>
+</ul>
+</li>
+<li><strong>Inconvenients</strong>
+<ul>
+<li>Una separació clara entre capes resulta difícil</li>
+</ul>
+</li>
+</ul>
+<h4 id="3-patr%C3%B3-arquitectura-de-repositori">3. Patró Arquitectura de repositori</h4>
+<p>Les dades estan compartides a un repositori centralitzar gestionable per tots els components.</p>
+<ul>
+<li><strong>Ús</strong>
+<ul>
+<li>Quan hi ha un gran volum de dades (Drive, GitHub, etc.)</li>
+</ul>
+</li>
+<li>Avantatges
+<ul>
+<li>Els canvis que fa un component es propaguen a tots els altres</li>
+<li>Les dades es poden gestionar consistentment, ja que es troben a un únic lloc</li>
+</ul>
+</li>
+<li>Inconvenients
+<ul>
+<li>El repositori es un punt de falla crític, ja que si hi ha problemes en el repositori tot el sistema es veu afectat</li>
+</ul>
+</li>
+</ul>
+<h4 id="4-patr%C3%B3-client-servidor">4. Patró Client-Servidor</h4>
+<p>Serveis proporcionats per servidors. Els clients hi accedeixen per fer algún tipus de tasca.</p>
+<ul>
+<li>Ús
+<ul>
+<li>S'empra quen les dades en una base de dades compartida s'han de poder accedir des de diferents llocs</li>
+</ul>
+</li>
+<li>Avantages
+<ul>
+<li>Els servidors es poden distribuir en una xarxa</li>
+</ul>
+</li>
+<li>Inconvenients
+<ul>
+<li>Cada servidor es un punt de falla. El rendiment pot ser impredecible perquè depèn tant de la xarxa com del sistema</li>
+</ul>
+</li>
+</ul>
+<!-- pagebreak -->
+<h1 id="6-proves-del-software">6. Proves del Software</h1>
+<h2 id="les-proves">Les proves</h2>
+<ul>
+<li>Una prova de software és tot procés orientat a comprovar la qualitat del software mitjançant la identificació de falles en aquest. La prova implica necessàriament l'execució del software.</li>
+<li>La realització de proves sistemàtiques permet minimitzar els riscs d'un software que controla directament processos perillosos.</li>
+<li>L'existència de defectes no tan crítics que no s'han detectat també implica riscs a nivell d'imatge, econòmics i fins i tot conseqüències legals.</li>
+<li>un procés de proves rigorós resulta costós en termes econoómics i d'esforç, però permet minimitzar el risc i son imprescindibles pero obtenir software de qualitat.</li>
+<li>S'han de realitzar proves que realment detecten errors.</li>
+<li>Els usuaris finals potencialment executaran totes les funcions del sistema.</li>
+<li>Els errors que no siguin detectats en les proves realitzades durant el desenvolupament apareixeran quan els usuaris finals emprin el software.</li>
+<li>Un dels objetius fonamentals és que el percentatge de falles detectades per l'usuari sigui mínim.</li>
+<li><em>Es millor evitar els errors que arreglar-los</em>.</li>
+<li>Abans es consideraba que les proves eren la darrera activitat del desenvolupament, però processos de software actuals recomanen començar a disseñar proves d'acceptació al mateix temps que es realitza l'especificació de requisits.</li>
+<li>Es necessari comptar amb un <strong>pla de proves</strong>.</li>
+</ul>
+<h2 id="conceptes-fonamentals">Conceptes fonamentals</h2>
+<ul>
+<li>Un <strong>cas de prova</strong> és un conjunt d'entrades, condicions d'execució i resultats esperats que han estat dissenyats amb un objectiu particular com, per exemple: exercitar un camí concret d'un programa o verificar el compliment d'un determinat requisit.</li>
+<li>Durant el procés de proves s'ha de preparar un nombre de casos de prova prou significatiu per a cobrir totes les possibles causes de falla.</li>
+<li>Una falla és un efecte inesperat observat en les funcions o prestacions que un software ofereix.</li>
+<li>S'anomena prova exhaustiva o prova completa a una prova IDEAL que proporcionaria la seguretat que s'han comprovar totes i cada una de les possibles causes de falla.</li>
+<li>El subconjunt de casos de prova escollits mai no podrà proporcionar la fiabilitat que proporcionaria una prova completa.</li>
+<li>S'anomena error (o defecte) a una imperfecció en el software que provoca un funcionament incorrecte d'aquest.</li>
+<li>S'anomena provar un software al procés de mostrar la presència d'un error d'aquest software.</li>
+<li>Depurar un software consisteix en trobar el lloc exacte on hi ha l'error i corregir-lo.</li>
+</ul>
+<h2 id="limitacions-de-les-proves">Limitacions de les proves</h2>
+<ul>
+<li>Imposibilitat de realitzar proves exhaustives: No es pot assegurar que un software està lliure d'errors. Una prova exhaustiva permet comprovar que no hi ha cap error</li>
+<li>Selecció dels casos de prova: Un problema important es decidir quins son els casos de prova més adients. Per això hi ha criteris de selecció</li>
+<li>Selecció dels equips de proves: Idealment les proves haurien de dur-les a terme persones independents, completament imparcials respecte al software a provar. Això pot arribar a ser difícil en equips de desenvolupament petits.</li>
+<li>Finalització de les proves: La capacitat per decidir si es pot acabar de fer proves o no, és difícil i condiciona la planificació de les proves</li>
+</ul>
+<h2 id="t%C3%A8cniques-de-proves">Tècniques de proves</h2>
+<h3 id="tipus">Tipus</h3>
+<ul>
+<li><strong>Tècniques estàtiques:</strong> No da fa falta executar el software per trobar errors (inspecció de codi)</li>
+<li><strong>Tècniques dinàmiques:</strong> El software sempre s'està executant
+<ul>
+<li><strong><a href="#caixa-blanca">Tècniquies de caixa blanca</a></strong> Utilitza el codi font del programa, especialment la seba estructura de control per seleccionar casos de prova</li>
+<li><strong>Tècniques de caixa negra:</strong> Obtenen casos de prova a prartir dels requisits funcionals. no es considera la forma en què es codifica la funcionalitat, sino que es consideren únicament les entrades i les sortides.</li>
+</ul>
+</li>
+</ul>
+<h3 id="caixa-blanca">Caixa blanca</h3>
+<h4 id="estrat%C3%A9gies-i-cobertura">Estratégies i cobertura</h4>
+<ul>
+<li><strong>Cobertura del codi:</strong> Una determinada propietat o característica del codi pren el major numero possible de valors.</li>
+<li><strong>Cobertura de sentències:</strong> Tota sentència executrable que hi ha al programa, s'executa com a mínim una vegada.</li>
+<li><strong>Cobertura de decisions:</strong> Casos de prova que exercitin els valors vertader i fals de casda decisió del programa.</li>
+<li><strong>Cobertura de condicions:</strong> Cada condició de la decisió ha de prendre els valors vertader i fals almenys una vegada.</li>
+<li><strong>Proves de bucles:</strong> Seleccionar casos en el que s'executin bucles.</li>
+<li><strong>Flux de dades:</strong> Una determinada variable, o en general una estructura de dades, pren diferents valors.</li>
+</ul>
+<h3 id="caixa-negra">Caixa negra</h3>
+<p><strong>Partició del sistema:</strong> Divisió del domini de entrada en particions per a les quals se suposa un mateix comportament.</p>
+<ul>
+<li>
+<h4 id="partici%C3%B3-en-clases-dequival%C3%A8ncia">Partició en clases d'equivalència</h4>
+<p>Els casos de prova s'obtenen a partir de les especificacions del software.</p>
+<ol>
+<li>Regles per a la identificació de classes: Rang de valors, números de valors, conjunt de valors admesos, booleans, etc.</li>
+<li>Seleccionar casos de prova: Han de cobrir el major nombre de classes vàlides i una invàlida per a cada cas.</li>
+</ol>
+</li>
+</ul>
+<h2 id="nivells-de-prova">Nivells de prova</h2>
+<h3 id="segons-quin-sigui-lobjecte-de-la-prova">Segons quin sigui l'objecte de la prova</h3>
+<h4 id="proves-unit%C3%A0ries">Proves unitàries</h4>
+<p>És un component de software especificament creat per verificar el funcionament d'un component del sistema en construcció. El els mètodes tradicionals les duen a terme els programadors. El seu objectiu és verificar el funcionament aïllat del mòdul.</p>
+<h4 id="proves-dintegraci%C3%B3">Proves d'integració</h4>
+<p>És el procés que permet verificar si un mòdul funciona correctament quan treballa amb altres mòduls. Les fan els programadors en un projecte petit, en un equip especialitzat per provar l'arquitectura. Tipus:</p>
+<ul>
+<li><strong>Integració ascendent:</strong> Promer provesn els componens de més baix nivell, després s'afegeixen components funcionals de manera progressiva.</li>
+<li><strong>Intregració descentent:</strong> Es desenvolupa un esquelet del sistema sobre el qual s'incorporen components, primer es prova el component de més alt nivell</li>
+<li><strong>Integració en sandvix:</strong> Mescla l'enfocament descendent amb l'ascendent. Presenta 3 capes:
+<ul>
+<li>La capa cental que es la que es desitja provar</li>
+<li>Enfocament ascendent suposant que la capa inferior ja ha aestat implementada</li>
+<li>Enfocament descendent per provvar la capa central de de la superior.</li>
+</ul>
+</li>
+</ul>
+<h4 id="proves-de-sistema">Proves de sistema</h4>
+<ul>
+<li><strong>Proves de funcionalitat i operativa:</strong> Proves de <a href="#caixa-negra">caixa negra</a> sobre les diferents funcionalitats del sistema integrat (Analista i client).</li>
+<li><strong>Proves de rendiment:</strong> Comprovació dels requisits no funcionals (Experts).</li>
+</ul>
+<h3 id="segons-quin-sigui-el-seu-objetiu">Segons quin sigui el seu objetiu</h3>
+<ol>
+<li>
+<p><strong>Proves d'acceptació:</strong> L'usuari accepta formalment el producte si es prova que funciona correctament. El software fa el que ha de fer i només el que ha de fer.</p>
+</li>
+<li>
+<p><strong>Proves d'instal·lació:</strong> Per assegurar funcionalment correcte de les opcions i funcionalitats de l'instal·lació. Verificar que tots els productes han quedat instal·lats satisfactòriament en l'entorn final on seran emprats.</p>
+</li>
+<li>
+<p><strong>Proves alfa i beta:</strong> Versió lliurad a aun determinat nombre d'usuaris per a la seva verificació.</p>
+<ul>
+<li><u>Alfa</u>: <strong>(Entorn virtual)</strong> Personal de l'organització.</li>
+<li><u>Beta</u>: Entorn d'usuaris extern, controlat.</li>
+</ul>
+</li>
+<li>
+<p><strong>Proves de conformitat:</strong> Verificar si el comportament del software es conforma a certes especificacions a les quals s'hauria d'ajustar d'acord amb els requisits.</p>
+</li>
+<li>
+<p><strong>Proves de regressió:</strong> Tipus de proves aplicables a diferents nivells, es duen a terme sobre un component per verificar que els canvis realitzats no han produït efectes no desitjats.</p>
+</li>
+<li>
+<p><strong>Proves de rendiment:</strong> Verifiquen que el software compleix els objectius de rendiment especificats pel client i especificats en el document de requisits.</p>
+</li>
+<li>
+<p><strong>Proves de desgast:</strong> Duen al sistema més enllà dels seus límits normals d'operació.</p>
+</li>
+<li>
+<p><strong>Proves de recuperació:</strong> Verifiquen que els mecanismes de recuperació funcionen correctament.</p>
+</li>
+<li>
+<p><strong>Proves configuració:</strong> Avaluen el software en els diferents entorns que es poden configurar d'acord amb el que s'ha especificat en els requisits.</p>
+</li>
+<li>
+<p><strong>Proves d'usabilitat:</strong> La usabilitat es refereix a la capacitat d'un software per a ser entès, aprés, emprat i atractiu per a l'usuari sobre unes condicions concretes d'ús. L'objectiu és limitar i eliminar dificultats pels usuaris. Depèn de dades:</p>
+<ul>
+<li><u>Directes:</u> Demanant a la persona que ha fet la prova.</li>
+<li><u>Indirectes:</u> Comportament observat.</li>
+<li><u>Automàtiques:</u> Per exemple: temps que tarden a fer la prova.</li>
+</ul>
+</li>
+</ol>
+<h2 id="eines-de-suport-a-les-proves">Eines de suport a les proves</h2>
+<h3 id="eines-de-cobertura">Eines de cobertura</h3>
+<ul>
+<li>Per monitorizar l'execusió dels casos de prova</li>
+<li>Afeigeixen noves intruccions al codi per enregistrar els caminis i conjunts de sentències executades baix els casos de prova.</li>
+<li>Limitacions:
+<ul>
+<li>Nombre de línies de codi. L'ideal seria que el 100% del codi estigués cobert</li>
+<li>El temps dedicat a l'execució de proves.</li>
+<li>Eines: <a href="http://cobertura.github.io/cobertura/">Cobertura</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="eines-de-capturareproducci%C3%B3">Eines de captura/reproducció</h3>
+<ul>
+<li>Ajuda al disseny i execució dels diferents casos de prova</li>
+<li>Registren esdeveniments d'entrada i sortida significatius durant l'execució de l'aplicació que s'està provant.</li>
+<li>Limitació: El seu cost d'implementació pot ser alt</li>
+<li>Eines: <a href="https://marathontesting.com/">Marathon</a> o <a href="https://es.wikipedia.org/wiki/JUnit">JUnit</a></li>
+</ul>
+<h3 id="el-proc%C3%A9s-de-proves">El procés de proves</h3>
+<ul>
+<li>Ha de ser <strong>definit, controlat i gestionar</strong> que integri les tècniques de proves, els nivells de proves i les mètriques.</li>
+<li>Procés docuementat mitjançant un <strong>pla de proves</strong>.</li>
+<li>Documentacio i productes de les proves (Estàndard per a la documentació de proves):
+<ul>
+<li>Pla de proves</li>
+<li>Especificació del disseny de les proves.</li>
+<li>Especificació del procediment de les proces</li>
+<li>Especificació dels casos de prova</li>
+<li>Indorme d'incidències trobades</li>
+</ul>
+</li>
+</ul>
+
+</body>
+</html>
