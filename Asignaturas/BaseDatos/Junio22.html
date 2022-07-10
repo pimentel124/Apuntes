@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Junio22.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+	<a href="/index">
+		<button>Home</button>
+	</a>
+	<a href="/Asignaturas/BaseDatos/Junio22.pdf">
+		<button position="Absolute" text-align="Center" >Descargar como PDF</button>
+	</a>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="examen-junio-2022">Examen Junio 2022</h1>
+<h2 id="part-1-teor%C3%ADa">Part 1 Teoría</h2>
+<h2 id="pregunta-1-4-punts-modelat-conceptual"><strong>Pregunta 1 (4 punts) Modelat Conceptual</strong></h2>
+<p><img src="Junio2022_1 - Pregunta 1.png" alt="Pregunta 1"></p>
+<p><img src="Modelo_conceptual.jpg" alt="Respuesta Pregunta 1"></p>
+<h2 id="pregunta-2-1-punt"><strong>Pregunta 2 (1 punt)</strong></h2>
+<h3 id="suposant-que-est%C3%A0-en-1fn-normalitzeu-la-relaci%C3%B3-r-a-b-c-d-e-f-fins-a-fnbc-considerant-que-es-donden-le-seg%C3%BCents-dependencies-funcionals">Suposant que està en 1FN, normalitzeu la relació R (A, B, C, D, E, F) fins a FNBC, considerant que es donden le següents dependencies funcionals</h3>
+<p style="text-align: center;font-size:18px">A, B &#10132; E;&emsp;B &#10132; C, D;&emsp;D &#10132; E, A;&emsp;E &#10132; F;</p>
+<h3 id="cal-passar-per-totes-les-formes-normals-explicant-cada-pas-i-els-problemes-que-es-resolen">Cal passar per totes les formes normals, explicant cada pas i els problemes que es resolen</h3>
+<h2 id="pregunta-3-15-punts-traducci%C3%B3-a-relacional">Pregunta 3 (1,5 punts) Traducció a relacional</h2>
+<h3 id="donat-el-seg%C3%BCent-model-de-dades-pas-a-pas-explicant-cada-decissi%C3%B3-obtinguin-el-model-relacional-corresponent">Donat el següent model de dades, pas a pas explicant cada decissió, obtinguin el model relacional corresponent</h3>
+<p><img src="Junio2022_1 - Pregunta 3.png" alt="Pregunta 3"></p>
+<p>Despesa(#idDespesa, titol, justificacio, dataSolicitud, estat, desc, cost)<br>
+MaterialInformatic (marca, #idDespesa)<br>
+Publicacio (revista, idx_qualitat, #idDespesa)
+Tipus (#idTipus, costMaxim)<br>
+Personal (#DNI, nom, llinatges, telefon, categoriaProfessional)<br>
+Equip (#idEquip, nomCurt, nomLlarg)<br>
+Periode (dataInici, dataFi)</p>
+<p>Despesa_Tipus (#idDespesa, idTipus)<br>
+Despesa_Equip (#idDespesa, idEquip)<br>
+Despesa_Personal (#idDespesa, DNI)<br>
+CEquip_Personal (idEquip, DNI)<br>
+Periode_Equip_Personal (idEquip, DNI)<br>
+<br></p>
+<p>Despesa_MaterialInformatic (#idDespesa, titol, justificacio, dataSolicitud, estat, desc, cost, marca, <u>idTipus</u>, <u>idEquip</u>)<br>
+Despesa_Publicacio (#idDespesa, titol, justificacio, dataSolicitud, estat, desc, cost, revista, idx_qualitat, <u>idTipus</u>, <u>idEquip</u>)<br>
+Despesa_Personal (<u>idDespesa</u>, <u>DNI</u>)<br>
+Tipus (#idTipus, costMaxim)<br>
+Personal(#DNI, nom, llinatges, telefon, categoriaProfessional)<br>
+Equip (#idEquip, nomCurt, nomLlarg, <u>DNICap</u>)<br>
+Periode_Personal_Equip(#idPeriode, dataInici, dataFi, <u>DNI</u>, <u>IdEquip</u>)<br>
+<br>
+S'ha generat una clase Despesa_Personal a partir de la seva relació de molts a molts.<br>
+S'ha generat una classe associativa Periode_Personal_Equip a partir de l'assosciació més la realació de molts a molts entre la clase Personal i Equip.<br>
+S'han fusionat les clases Despersa i Material Informatic i Despersa i Publicació a partir de l'herència M,XOR.</p>
+<div style="page-break-before: always"></div>
+<h2 id="part-2-sql">Part 2 SQL</h2>
+<p><img src="Junio2022_1 - Pregunta 4.png" alt="Modelo SQL"></p>
+<p>La BD relacional corresponent té les següents taules:</p>
+<ul>
+<li>PIS (<u>idIpis</u>, m2, pis, porta, preuVenda, adr, poblacio, idPluri)</li>
+<li>PLURIFAMILIAR (<u>idPluri</u>, nombreHabitatges, preuVenda, adr, poblacio)</li>
+<li>UNIFAMILIAR (<u>idUni</u>, plantes, preuVenda, adr, poblacio)</li>
+<li>OFERTA (<u>idOfer</u>, data, doblers, idImmoble, idCli, idVen)</li>
+<li>PERSONA (<u>idPer</u>, nomP, email)</li>
+<li>CLIENT (<u>idCli</u>, telf)</li>
+<li>VENEDOR (<u>idVen</u>, mobil, NIF)</li>
+</ul>
+<h2 id="pregunta-4-1-punt">Pregunta 4 (1 punt)</h2>
+<h3 id="calcular-el-total-de-pisos-que-tenim-en-venda-de-cada-un-dels-edificis-plurifamliars-que-apareixen-com-a-tal-a-qualsevol-oferta-del-dia-01-02-2022-el-resultat-ha-de-mostrar-lidentificador-de-ledifici-i-el-total-de-pisos-que-hi-ha-en-venda-ordenat-ascendentment">Calcular el total de pisos que tenim en venda de cada un dels edificis plurifamliars que apareixen com a tal a qualsevol oferta del dia 01-02-2022. El resultat ha de mostrar l'identificador de l'edifici i el total de pisos que hi ha en venda ordenat ascendentment</h3>
+<br>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> PLURIFAMILIAR.idPluri, <span class="hljs-keyword">COUNT</span>(PIS.idIpis) <span class="hljs-keyword">AS</span> totalPisos
+<span class="hljs-keyword">FROM</span> PIS
+<span class="hljs-keyword">JOIN</span> PLURIFAMILIAR
+    <span class="hljs-keyword">ON</span> PIS.idPluri = PLURIFAMILIAR.idPluri
+<span class="hljs-keyword">JOIN</span> OFERTA
+    <span class="hljs-keyword">ON</span> OFERTA.idImmoble = PIS.idIpis
+    <span class="hljs-keyword">AND</span> OFERTA.data = <span class="hljs-string">'01-02-2022'</span>
+<span class="hljs-keyword">GROUP</span> <span class="hljs-keyword">BY</span> PLURIFAMILIAR.idPluri
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> totalPisos <span class="hljs-keyword">ASC</span>;
+</div></code></pre>
+<h2 id="pregunta-5-15-punts">Pregunta 5 (1,5 punts)</h2>
+<h3 id="de-cada-pis-de-m%C3%A9s-de-100-m2-que-el-venedor-de-nom-pere-ha-ofertat-durant-lany-2022-mostrar-el-nom-dels-clients-als-que-hi-ha-fet-loferta-el-resultar-ha-de-mostrar-el-nom-del-client-i-lidentificador-de-cada-un-dels-pisos-ordenat-per-nom-de-client">De cada pis de més de 100 m2 que el venedor de nom Pere ha ofertat durant l'any 2022, mostrar el nom dels clients als que hi ha fet l'oferta. El resultar ha de mostrar el nom del client i l'identificador de cada un dels pisos, ordenat per nom de client</h3>
+<br>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> PERSONA.nomP, PIS.idIpis
+<span class="hljs-keyword">FROM</span> PIS
+<span class="hljs-keyword">JOIN</span> OFERTA <span class="hljs-keyword">ON</span> PIS.idIpis = OFERTA.idImmoble 
+    <span class="hljs-keyword">AND</span> PIS.m2 &gt; <span class="hljs-number">100</span>
+    <span class="hljs-keyword">AND</span> <span class="hljs-keyword">YEAR</span>(OFERTA.data) = <span class="hljs-string">'2022'</span>
+<span class="hljs-keyword">JOIN</span> PERSONA <span class="hljs-keyword">ON</span> OFERTA.idCli = PERSONA.idPer
+<span class="hljs-keyword">JOIN</span> VENDEDOR <span class="hljs-keyword">ON</span> OFERTA.idVen = VENDEDOR.idVen
+    <span class="hljs-keyword">AND</span> VENEDOR.idVen = (<span class="hljs-keyword">SELECT</span> PERSONA.idPer <span class="hljs-keyword">from</span> PERSONA <span class="hljs-keyword">WHERE</span> PERSONA.nomP = <span class="hljs-string">'Pere'</span>)
+<span class="hljs-keyword">ORDER</span> <span class="hljs-keyword">BY</span> PERSONA.nomP;
+</div></code></pre>
+<h2 id="pregunta-6-05-punts-amb-una-sola-sent%C3%A8ncia-mostrar-quants-de-pisos-tenim-a-palma-sense-cap-oferta">Pregunta 6 (0,5 punts) Amb una sola sentència, mostrar quants de pisos tenim a Palma sense cap oferta</h2>
+<pre class="hljs"><code><div><span class="hljs-keyword">SELECT</span> <span class="hljs-keyword">COUNT</span>(IdPis) <span class="hljs-keyword">AS</span> totalPisos
+<span class="hljs-keyword">FROM</span> PIS
+<span class="hljs-keyword">LEFT</span> <span class="hljs-keyword">JOIN</span> OFERTA <span class="hljs-keyword">ON</span> PIS.idIpis = OFERTA.idImmoble
+    <span class="hljs-keyword">AND</span> PIS.poblacio = <span class="hljs-string">'Palma'</span>
+<span class="hljs-keyword">WHERE</span> OFERTA.idOfer <span class="hljs-keyword">IS</span> <span class="hljs-literal">NULL</span>;
+</div></code></pre>
+<h2 id="pregunta-7-05-punts-amb-una-sola-sent%C3%A8ncia-modificar-el-nom-que-ha-de-ser-pere-joan-del-venedor-de-nif-12345678k">Pregunta 7 (0,5 punts) Amb una sola sentència, modificar el nom, que ha de ser Pere Joan, del venedor de NIF 12345678K</h2>
+<pre class="hljs"><code><div><span class="hljs-keyword">UPDATE</span> PERSONA
+<span class="hljs-keyword">SET</span> PERSONA.nomP = <span class="hljs-string">'Pere Joan'</span>
+<span class="hljs-keyword">WHERE</span> PERSONA.idPer <span class="hljs-keyword">IN</span> (<span class="hljs-keyword">SELECT</span> VENDEDOR.idVen <span class="hljs-keyword">FROM</span> VENDEDOR <span class="hljs-keyword">WHERE</span> VENDEDOR.NIF = <span class="hljs-string">'12345678K'</span>);
+</div></code></pre>
+
+</body>
+</html>
