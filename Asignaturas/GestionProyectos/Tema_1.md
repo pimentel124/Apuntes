@@ -49,3 +49,7 @@ La Dirección de proyectos es la aplicación de conocimientos, habilidades, herr
     + <u>Coordinación Centralizada</u>: con el liderazgo y la orientación de un director del proyecto.
     + <u>Coordinación Descentralizada</u>: los miembros del equipo del proyecto se auto-organizan y se auto-gestionan.
 + Supervisa el proyecto: La supervisión puede estar involucrada en actividades de seguimiento relacionadas con la obtención y el sostenimiento de beneficios después de que se completen los entregables del proyecto, pero antes del cierre formal del mismo
++ Presenta objetivos
++ Apoya al equipo:
+  + Apoya a las personas a través del cambio y ayuda a abordar los obstáculos que pueden impedir el éxito.
+  + Evalúa el desempeño y proporciona retroalimentación a las personas y los equipos del proyecto para ayudarlos a aprender, adaptarse y mejorar.
