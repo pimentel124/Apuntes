@@ -69,3 +69,11 @@ La Dirección de proyectos es la aplicación de conocimientos, habilidades, herr
 + Aplican conocimientos especializados
   + Ofrecen asesoramiento y apoyo a toda la organización, y contribuyen al proceso de aprendizaje y la precisión del trabajo del equipo del proyecto.
   + Las personas en esta función proporcionan el conocimiento, la visión y la pericia en un tema específico para un proyecto.
+
+### ¿Qué hace el cliente del proyecto?
+
+El <u>cliente</u> es la persona o grupo que ha solicitado o está financiando el proyecto y **retroalimenta el proyecto**. El <u>usuario final</u> es la persona o grupo que experimentará el directo del entregable del proyecto. Cliente y usuario NO son siempre el mismo.
+
+### ¿Cómo se dirigen los Proyectos?
+
+Durante muchos años, el “_Proyect management_” ha sido una profesión por accidente. Muchos profesionales han trabajado como Directores de Proyecto sin haberse preparado para ello.
