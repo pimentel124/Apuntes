@@ -53,3 +53,19 @@ La Dirección de proyectos es la aplicación de conocimientos, habilidades, herr
 + Apoya al equipo:
   + Apoya a las personas a través del cambio y ayuda a abordar los obstáculos que pueden impedir el éxito.
   + Evalúa el desempeño y proporciona retroalimentación a las personas y los equipos del proyecto para ayudarlos a aprender, adaptarse y mejorar.
++ Se alinea con los objetivos de la organización:
+  + Promueve el proyecto y comunica la visión, las metas y las expectativas de la organización al equipo del proyecto y a la comunidad de interesados en general.
+  + Identifica las oportunidades que surgen dentro del proyecto y las comunica a la alta dirección.
++ Sirve de enlace entre la alta dirección y el equipo del proyecto.
++ Desempeña un papel de apoyo para mantener los proyectos alineados con los objetivos de negocio, elimina obstáculos y aborda incidentes que queden fuera de los límites de la autoridad.
+
+### ¿Qué hacen los miembros del equipo del proyecto?
+
++ Realizan el trabajo y aportan ideas:
+  + El equipo del proyecto dispone del conocimiento, habilidades y experiencia necesarios para elaborar los productos y materializar los resultados del proyecto.
++ Impulsan la entrega del proyecto:
+  + El trabajo puede ser a tiempo completo o a tiempo parcial, durante la duración del proyecto o por un periodo limitado, y el trabajo puede ser coubicado o virtual.
+  + El equipo puede ser grande o pequeño, centralizado o distribuido, transversal o especializado, etc.
++ Aplican conocimientos especializados
+  + Ofrecen asesoramiento y apoyo a toda la organización, y contribuyen al proceso de aprendizaje y la precisión del trabajo del equipo del proyecto.
+  + Las personas en esta función proporcionan el conocimiento, la visión y la pericia en un tema específico para un proyecto.
