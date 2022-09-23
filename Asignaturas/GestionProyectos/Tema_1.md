@@ -74,6 +74,18 @@ La Dirección de proyectos es la aplicación de conocimientos, habilidades, herr
 
 El <u>cliente</u> es la persona o grupo que ha solicitado o está financiando el proyecto y **retroalimenta el proyecto**. El <u>usuario final</u> es la persona o grupo que experimentará el directo del entregable del proyecto. Cliente y usuario NO son siempre el mismo.
 
-### ¿Cómo se dirigen los Proyectos?
+### ¿Cómo se dirigen los proyectos?
 
 Durante muchos años, el “_Proyect management_” ha sido una profesión por accidente. Muchos profesionales han trabajado como Directores de Proyecto sin haberse preparado para ello.
+
+### ¿Qué es la Oficina de Proyectos (PMO)?
+
+Es una estructura de gestión de una organización que da soporte a:
+– La estandarización de los procesos de gobernanza relacionados con el proyecto.
+– Al intercambio de metodologías, herramientas y técnicas.
+– La colaboración entre todos los recursos de uno o varios proyectos, involucrar y colaborar con los interesados, desarrollar el talento.
+– La formación de los miembros del equipo del proyecto.
+– La alineación del proyecto con los objetivos estratégicos para así obtener valor de las inversiones en los proyectos.
+
+Hay diferentes tipos de estructuras de PMO en las
+organizaciones
