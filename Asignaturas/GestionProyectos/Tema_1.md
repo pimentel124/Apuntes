@@ -89,3 +89,14 @@ Es una estructura de gestión de una organización que da soporte a:
 
 Hay diferentes tipos de estructuras de PMO en las
 organizaciones
+
+### ¿Por qué fallan los proyectos?
+
+Principales motivos:
+
++ Comunicación inadecuada o mala
++ Cambios en los objetivos del proyecto
++ Cambios en las prioridades de la organización
++ Las oportunidades y los riesgos no se definieron adecuadamente
++ Visión o metas del proyecto inadecuadas
++ Recopilación de requisitos incorrecta
