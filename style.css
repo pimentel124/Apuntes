@@ -1,15 +1,26 @@
 /*************************/
 /* Styling Header */
 /*************************/
-header{
-	
-	overflow: hidden;
+
+body{
+    background-color: #0B132B;
+    color: #6FFFE9;
+    margin-top: 0px;
 }
 
-#top-header{
-		
+/*************************/
+/* Styling Header */
+/*************************/
+header{
+	margin-top: 0;
+	overflow: hidden;
+    background-color: #3A506B;
+    margin-bottom: 20px;
+}
+
+#top-header{	
 	text-align: center;
-	height: 60px;
+	height: 50px;
 }
 
 /****************/
@@ -19,14 +30,15 @@ header{
 	float: left;
 	padding: none;
 	margin: none;
-	height: 3%;
-	width: 3%;
+	height: 0px;
+	width: 100%;
 }
 
 #logo img{
-	width: 60%;
+	/*width: 5%;*/
+    height: 50px;
 	float: left;
-	padding: 10px 0px;
+	padding: 5px 5px;
 }
 
 /***************************/
@@ -42,8 +54,8 @@ header{
 #menu ul{
 	text-align: center;
 	float: right;
-	margin: none;
-	background: #0074D9;
+	margin: 0;
+	background: #3A506B;
 }
 	
 #menu li{
@@ -63,13 +75,12 @@ header{
 	
 #menu li a{
 		
-	color: #FFF;
+	color: #6FFFE9;
 }
 	
 #menu li:hover a, #menu li span{
-	background: #FFF;
-	color: #0074D9;
-	border-left: 1px solid #0074D9;
+	background: #6FFFE9;
+	color: #3A506B;
 	text-decoration: none;
 }
 
