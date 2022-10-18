@@ -1,56 +1,78 @@
-body {
-    background-color: #181715;
-    /* max width: 100%; */
-    margin: 0 auto;
-    padding: 0 auto;
-    width: 100%;
-    height: 100%;
-    display: grid;
-
-}
-
-html, body{
-    height: 100%;
-}
-         
-h1, h2, h3{
-    margin: 0;
-    padding: 0;
-    color: #404040;
-}
-     
-p, ol, ul{
-    margin-top: 0;
-}
- 
-p {
-    line-height: 180%;
-}
- 
-ol, ul{
-    padding: 0;
-    list-style: none;
-}
-     
-.container{   
-    /* Set width of container to
-        1200px and align center */
-    margin: 0px auto;
-    width: 1200px;
-}
-
-
-
+/*************************/
+/* Styling Header */
+/*************************/
 header{
-    overflow: hidden;
+	
+	overflow: hidden;
 }
-
 
 #top-header{
-         
-    text-align: center;
-    height: 60px;
+		
+	text-align: center;
+	height: 60px;
 }
+
+/****************/
+/* Styling Logo */
+/****************/
+#logo{
+	float: left;
+	padding: none;
+	margin: none;
+	height: 3%;
+	width: 3%;
+}
+
+#logo img{
+	width: 60%;
+	float: left;
+	padding: 10px 0px;
+}
+
+/***************************/
+/* Styling Navigation Menu */
+/***************************/
+#menu{
+	float: right;
+	width: 70%;
+	height: 100%;
+	margin: none;
+}
+	
+#menu ul{
+	text-align: center;
+	float: right;
+	margin: none;
+	background: #0074D9;
+}
+	
+#menu li{
+	display: inline-block;
+	padding: none;
+	margin: none;
+}
+	
+#menu li a, #menu li span{
+	display: inline-block;
+	padding: 0em 1.5em;
+	text-decoration: none;
+	font-weight: 600;
+	text-transform: uppercase;
+	line-height: 60px;
+}
+	
+#menu li a{
+		
+	color: #FFF;
+}
+	
+#menu li:hover a, #menu li span{
+	background: #FFF;
+	color: #0074D9;
+	border-left: 1px solid #0074D9;
+	text-decoration: none;
+}
+
 
 asignaturas {
     display: flex;
