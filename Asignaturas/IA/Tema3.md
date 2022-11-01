@@ -6,6 +6,7 @@
   - [Problem-solving agents](#problem-solving-agents)
     - [**Goal formulation:**](#goal-formulation)
     - [**Problem formulation:**](#problem-formulation)
+  - [Environment](#environment)
 
 <br>
 <br>
@@ -80,3 +81,10 @@ State space graph:
 <br>
 
 ![picture 3](img/state-grapth.png)  
+
+### Environment
+
+- **Observable** / Partially: know the initial state
+- **Static** / Dynamic: the states don’t change when the agent search
+- **Deterministic** / Stochastic: the next state is defined only by current
+- **Discrete** / Continuous: time management
