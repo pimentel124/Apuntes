@@ -20,6 +20,9 @@
     - [**Iterative deepening search**](#iterative-deepening-search)
   - [Informed search](#informed-search)
     - [Heuristics](#heuristics)
+    - [Best first search](#best-first-search)
+    - [Greedy search](#greedy-search)
+    - [A* search](#a-search)
 
 <br>
 <br>
@@ -194,3 +197,30 @@ Iterative deepening search is a combination of depth-first search and breadth-fi
 
 A heuristic function, also simply called a heuristic, is a function that ranks  alternatives in search algorithms at each branching step based on available information to decide which branch to follow.  
 Formally, a heuristic is a function $h(n)$ for each expanded node, whish is the estimate of (optimal) cost to goal from node $n$
+
+### Best first search
+
+Best first search implementation by ordering the nodes by an
+evaluation function:
+
+- Greedy: order by $h(n)$
+- A* search: order by $f(n)$
+
+Search efficiency depends on heuristic quality
+
+### Greedy search
+
+$h(n)$ = estimate of cost from $n$ to goal  
+Greedy best-first search expands the node that appears to be
+closest to goal:
+
+- Priority queue sort function = $h(n)$
+
+### A* search
+
+Idea: avoid expanding paths that are already expensive
+Priority queue sort function = f(n)
+f(n) = g(n)+h(n) is the estimate of total cost to goal
+– g(n) is the known path cost so far to node n
+– h(n) is the estimate of (optimal) cost to goal from node n
+– Priority = minimum f(n)
