@@ -1,12 +1,21 @@
 # Lesson 3
 
 - [Lesson 3](#lesson-3)
-  - [Goal-based agents](#goal-based-agents)
-  - [Why search?](#why-search)
-  - [Problem-solving agents](#problem-solving-agents)
-    - [**Goal formulation:**](#goal-formulation)
-    - [**Problem formulation:**](#problem-formulation)
-  - [Environment](#environment)
+    - [Goal-based agents](#goal-based-agents)
+    - [Why search?](#why-search)
+    - [Problem-solving agents](#problem-solving-agents)
+      - [**Goal formulation:**](#goal-formulation)
+      - [**Problem formulation:**](#problem-formulation)
+    - [Environment](#environment)
+    - [State space search](#state-space-search)
+    - [Tree search](#tree-search)
+  - [Search strategies](#search-strategies)
+    - [Summary](#summary)
+    - [Performances measures of search](#performances-measures-of-search)
+    - [Uninformed search strategies](#uninformed-search-strategies)
+      - [**Breadth-first search**](#breadth-first-search)
+      - [**Depth-first search**](#depth-first-search)
+      - [**Depth-limited search**](#depth-limited-search)
 
 <br>
 <br>
@@ -88,3 +97,76 @@ State space graph:
 - **Static** / Dynamic: the states don’t change when the agent search
 - **Deterministic** / Stochastic: the next state is defined only by current
 - **Discrete** / Continuous: time management
+
+### State space search
+
+- The formal definition does not talk about the way in which the information must be stored in the states or what are the operators that allow to pass from one state to the other.
+- Depends on the specific problem.
+- The formal definition gives a general framework that allows us to apply different methods to solving the problem.
+
+### Tree search
+
+- Explore space by generating successors of already-explored states (“expanding” states).
+- Evaluate every generated state: is it a goal state?
+
+## Search strategies
+
+- The search strategy is defined when we choose the order in which the nodes are expanded
+- Types:
+  - Uninformed or blind search: only available information is used in the problem definition (cost is not considered).
+  - Informed or heuristic search: the agent has additional information about the problem (estimate the cost to the goal).
+
+### Summary
+
+- Generate the **search space** by applying actions to the initial state and all further resulting states.
+- **Problem**: initial state, actions, transition model, goal test.
+- **Solution**: sequence of actions to goal.
+- **Tree-search** (don’t remember visited nodes) vs. **Graph-search** (do remember them).
+- **Search strategy** (Uninformed vs Informed).
+
+### Performances measures of search
+
+- Completeness: Always find a solution (if one exists)?
+- Time complexity: Number of nodes generated
+- Space complexity: Maximum number of nodes in memory
+- Optimality: Always find a least-cost solution?
+- Time and space complexity are measured in terms of
+  - b: Maximum branching factor of the search tree
+  - d: Depth of the least-cost solution
+  - m: Maximum depth of the state space (maybe $\infty$)
+
+### Uninformed search strategies
+
+- Uninformed search strategies use only the information available in the problem definition
+- No analysis or knowledge of states, only:
+  - Generate successor nodes
+  - Check for goal state
+- Specifically, no comparison of states
+
+<u>**Types of search:**</u>
+
+- Breadth-first search
+- Depth-first search
+- Depth-limited search
+- Iterative deepening search
+
+#### **Breadth-first search**
+
+Breadth-first search on a simple binary tree. At each stage, the node to be expanded next is indicated by the triangular marker.
+<br>
+
+![Breadth-first](img/Breadth-first.png)
+
+#### **Depth-first search**
+
+Depth-first search on a simple binary tree. At each stage, the node to be expanded next is the deepest node indicated by the triangular marker.
+<br>
+
+![Depth-first](img/Depth-first.png)  
+
+#### **Depth-limited search**
+
+In a depth-limited search, there can be a depth limit. If the depth limit is reached, the search is terminated. This is called **depth-limited search**. If the depth limit is set to infinity, then the search is equivalent to a depth-first search.
+<br>
+
+![Depth-limit](img/Depth-limit.png)  
