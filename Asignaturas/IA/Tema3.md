@@ -219,8 +219,9 @@ closest to goal:
 ### A* search
 
 Idea: avoid expanding paths that are already expensive
-Priority queue sort function = f(n)
-f(n) = g(n)+h(n) is the estimate of total cost to goal
-– g(n) is the known path cost so far to node n
-– h(n) is the estimate of (optimal) cost to goal from node n
-– Priority = minimum f(n)
+Priority queue sort function = $f(n)$  
+$f(n)$ = $g(n)+h(n)$ is the estimate of total cost to goal
+
+- $g(n)$ is the known path cost so far to node n
+- $h(n)$ is the estimate of (optimal) cost to goal from node n
+- Priority = minimum $f(n)$
