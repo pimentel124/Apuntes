@@ -1,27 +1,30 @@
 # Lesson 3
 
 - [Lesson 3](#lesson-3)
-    - [Goal-based agents](#goal-based-agents)
+  - [Goal-based agents](#goal-based-agents)
     - [Why search?](#why-search)
     - [Problem-solving agents](#problem-solving-agents)
       - [**Goal formulation:**](#goal-formulation)
       - [**Problem formulation:**](#problem-formulation)
-    - [Environment](#environment)
+  - [Environment](#environment)
     - [State space search](#state-space-search)
     - [Tree search](#tree-search)
   - [Search strategies](#search-strategies)
     - [Summary](#summary)
     - [Performances measures of search](#performances-measures-of-search)
+  - [Uninformed search](#uninformed-search)
     - [Uninformed search strategies](#uninformed-search-strategies)
-      - [**Breadth-first search**](#breadth-first-search)
-      - [**Depth-first search**](#depth-first-search)
-      - [**Depth-limited search**](#depth-limited-search)
-      - [**Iterative deepening search**](#iterative-deepening-search)
+    - [**Breadth-first search**](#breadth-first-search)
+    - [**Depth-first search**](#depth-first-search)
+    - [**Depth-limited search**](#depth-limited-search)
+    - [**Iterative deepening search**](#iterative-deepening-search)
+  - [Informed search](#informed-search)
+    - [Heuristics](#heuristics)
 
 <br>
 <br>
 
-### Goal-based agents
+## Goal-based agents
 
 - Have a concept of the future
 - Can consider impact of action on future states
@@ -92,7 +95,7 @@ State space graph:
 
 ![picture 3](img/state-grapth.png)  
 
-### Environment
+## Environment
 
 - **Observable** / Partially: know the initial state
 - **Static** / Dynamic: the states don’t change when the agent search
@@ -136,6 +139,8 @@ State space graph:
   - d: Depth of the least-cost solution
   - m: Maximum depth of the state space (maybe $\infty$)
 
+## Uninformed search
+
 ### Uninformed search strategies
 
 - Uninformed search strategies use only the information available in the problem definition
@@ -151,30 +156,41 @@ State space graph:
 - Depth-limited search
 - Iterative deepening search
 
-#### **Breadth-first search**
+<br>
+
+- ![picture 5](img/uninformed_table.png)  
+
+### **Breadth-first search**
 
 Breadth-first search on a simple binary tree. At each stage, the node to be expanded next is indicated by the triangular marker.
 <br>
 
 ![Breadth-first](img/Breadth-first.png)
 
-#### **Depth-first search**
+### **Depth-first search**
 
 Depth-first search on a simple binary tree. At each stage, the node to be expanded next is the deepest node indicated by the triangular marker.
 <br>
 
 ![Depth-first](img/Depth-first.png)  
 
-#### **Depth-limited search**
+### **Depth-limited search**
 
 In a depth-limited search, there can be a depth limit. If the depth limit is reached, the search is terminated. This is called **depth-limited search**. If the depth limit is set to infinity, then the search is equivalent to a depth-first search.
 <br>
 
-![Depth-limit](img/Depth-limit.png)  
+![Depth-limit](img/Depth-limit.png)
 
-#### **Iterative deepening search**
+### **Iterative deepening search**
 
 Iterative deepening search is a combination of depth-first search and breadth-first search. It is a depth-first search with a depth limit. The depth limit is increased after each iteration. The search is terminated when the goal is found or the depth limit is set to infinity.
 <br>
 
-![picture 4](img/Iterative-deepening.png)  
+![picture 4](img/Iterative-deepening.png)
+
+## Informed search
+
+### Heuristics
+
+A heuristic function, also simply called a heuristic, is a function that ranks  alternatives in search algorithms at each branching step based on available information to decide which branch to follow.  
+Formally, a heuristic is a function $h(n)$ for each expanded node, whish is the estimate of (optimal) cost to goal from node $n$
