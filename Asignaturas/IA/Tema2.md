@@ -35,7 +35,7 @@
 
 ### <u>AI strategies</u>
 
-- Think aas a human: the **cognitive model**.
+- Think as a human: the **cognitive model**.
 - **Rational thinking:** to draw justifable concludions from data, rules, and logic.
 - Rational acting: **intelligent agents**.
 
@@ -109,7 +109,7 @@ Example table:
 
 - Fully observable (vs. partially observable): an agent's sensors give it access to the complete state of the environment at each point in time.
 - Deterministic (vs. stochastic): The next state of the environment is completely determined by the current state and the action executed.
-by the agent. (If the environment is deterministic except for the actions of other agents, then the environment is strategic)
+  by the agent. (If the environment is deterministic except for the actions of other agents, then the environment is strategic)
 - Episodic (vs. sequential): An agent’s action is divided into atomic episodes. Decisions do not depend on previous decisions/actions.
 
 ### <u>Environment types II</u>
@@ -117,7 +117,8 @@ by the agent. (If the environment is deterministic except for the actions of oth
 - Static (vs. dynamic): the environment is unchanged while an agent is deliberating. (The environment is semidynamic if the environment itself does not change with the passage of time but the agent's performance score does)
 - Discrete (vs. continuous): a limited number of distinct, clearly defined perceptions and actions. How do we represent or abstract or model the world?
 - Single agent (vs. multi-agent): an agent operating by itself in an environment. Does the other agent interfere with my performance measure?
-<br>
+  
+  <br>
 
 ![Example_taskenv](img/Example_taskenv.png)
 
