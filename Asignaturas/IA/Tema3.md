@@ -28,6 +28,8 @@
     - [Consistent heuristics](#consistent-heuristics)
     - [Particular cases](#particular-cases)
     - [Summary](#summary-1)
+  - [Example exercices](#example-exercices)
+    - [1. A* search](#1-a-search)
 
 <br>
 <br>
@@ -287,3 +289,11 @@ improve efficiency
 - Can provide significant speed-ups in practice
   - Ex: 8-Puzzle, dramatic speed-up
   - Still worst-case exponential time complexity (NP-complete)
+
+## Example exercices
+
+### 1. A* search
+
+<br>
+
+![Ex-1](img/Ex-1.png)  
