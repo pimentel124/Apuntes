@@ -16,6 +16,7 @@
       - [**Breadth-first search**](#breadth-first-search)
       - [**Depth-first search**](#depth-first-search)
       - [**Depth-limited search**](#depth-limited-search)
+      - [**Iterative deepening search**](#iterative-deepening-search)
 
 <br>
 <br>
@@ -170,3 +171,10 @@ In a depth-limited search, there can be a depth limit. If the depth limit is rea
 <br>
 
 ![Depth-limit](img/Depth-limit.png)  
+
+#### **Iterative deepening search**
+
+Iterative deepening search is a combination of depth-first search and breadth-first search. It is a depth-first search with a depth limit. The depth limit is increased after each iteration. The search is terminated when the goal is found or the depth limit is set to infinity.
+<br>
+
+![picture 4](img/Iterative-deepening.png)  
