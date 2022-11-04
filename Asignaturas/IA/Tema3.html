@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Tema3.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="lesson-3">Lesson 3</h1>
+<ul>
+<li><a href="#lesson-3">Lesson 3</a>
+<ul>
+<li><a href="#goal-based-agents">Goal-based agents</a>
+<ul>
+<li><a href="#why-search">Why search?</a></li>
+<li><a href="#problem-solving-agents">Problem-solving agents</a>
+<ul>
+<li><a href="#goal-formulation"><strong>Goal formulation:</strong></a></li>
+<li><a href="#problem-formulation"><strong>Problem formulation:</strong></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#environment">Environment</a>
+<ul>
+<li><a href="#state-space-search">State space search</a></li>
+<li><a href="#tree-search">Tree search</a></li>
+</ul>
+</li>
+<li><a href="#search-strategies">Search strategies</a>
+<ul>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#performances-measures-of-search">Performances measures of search</a></li>
+</ul>
+</li>
+<li><a href="#uninformed-search">Uninformed search</a>
+<ul>
+<li><a href="#uninformed-search-strategies">Uninformed search strategies</a></li>
+<li><a href="#breadth-first-search"><strong>Breadth-first search</strong></a></li>
+<li><a href="#depth-first-search"><strong>Depth-first search</strong></a></li>
+<li><a href="#depth-limited-search"><strong>Depth-limited search</strong></a></li>
+<li><a href="#iterative-deepening-search"><strong>Iterative deepening search</strong></a></li>
+</ul>
+</li>
+<li><a href="#informed-search">Informed search</a>
+<ul>
+<li><a href="#heuristics">Heuristics</a></li>
+<li><a href="#best-first-search"><strong>Best first search</strong></a></li>
+<li><a href="#greedy-search"><strong>Greedy search</strong></a></li>
+<li><a href="#a-search"><em><em>A</em> search</em>*</a>
+<ul>
+<li><a href="#properties-of-a-search">Properties of A* search</a></li>
+</ul>
+</li>
+<li><a href="#admissible-heuristics">Admissible heuristics</a></li>
+<li><a href="#consistent-heuristics">Consistent heuristics</a></li>
+<li><a href="#particular-cases">Particular cases</a></li>
+<li><a href="#summary-1">Summary</a></li>
+</ul>
+</li>
+<li><a href="#example-exercices">Example exercices</a>
+<ul>
+<li><a href="#1-a-search">1. A* search</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<br>
+<br>
+<h2 id="goal-based-agents">Goal-based agents</h2>
+<ul>
+<li>Have a concept of the future</li>
+<li>Can consider impact of action on future states</li>
+<li>Capable of comparing desirability of states relative to a goal</li>
+<li>Agent’s job: identify best course of actions to reach goal</li>
+<li>Can be accomplished by searching through possible states and actions</li>
+</ul>
+<p><strong>An example:</strong>
+If you want to go on a trip:
+<br></p>
+<p><img src="img/goal-based_example.png" alt="goal-based_example"></p>
+<ul>
+<li>First goal:
+<ul>
+<li>Go to the airport..</li>
+</ul>
+</li>
+<li>Formulate problem:
+<ul>
+<li>States: different roads</li>
+<li>Actions: drive between roads / choose next road</li>
+</ul>
+</li>
+<li>Find a solution:
+<ul>
+<li>Requence of roads</li>
+</ul>
+</li>
+</ul>
+<h3 id="why-search">Why search?</h3>
+<ul>
+<li><strong>Why not Dijkstra's Algorithm?</strong>
+<ul>
+<li>Want to search in unknown &amp; infinite spaces Combine search with “exploration” (Ex: autonomous rover on Mars must search an unknown space)</li>
+<li>Want to search based on agent’s actions, w/ unknown connections
+(Ex: web crawler may not know what connections are available on a URL before visiting it)</li>
+<li>The agent may not know the result of an action before trying it</li>
+</ul>
+</li>
+</ul>
+<h3 id="problem-solving-agents">Problem-solving agents</h3>
+<p>These are the following steps which require to solve a problem:</p>
+<h4 id="goal-formulation"><strong>Goal formulation:</strong></h4>
+<p>This one is the first and simple step in problem-solving. It organizes finite steps to formulate a target/goals which require some action to achieve the goal. Today the formulation of the goal is based on AI agents.</p>
+<ul>
+<li>Agent creates goal based on:
+<ul>
+<li>Current environment</li>
+<li>Evaluation metrics</li>
+</ul>
+</li>
+<li>How does a goal help?
+<ul>
+<li>Guidance when state is ambiguous</li>
+<li>Narrows down potential choices</li>
+</ul>
+</li>
+</ul>
+<h4 id="problem-formulation"><strong>Problem formulation:</strong></h4>
+<p>It is one of the core steps of problem-solving which decides what action should be taken to achieve the formulated goal. In AI this core part is dependent upon software agent which consisted of the following components to formulate the associated problem.</p>
+<ul>
+<li>A <strong>state</strong> is a representation of problem elements at a given moment.</li>
+<li>A <strong>State space</strong> is the set of all states reachable from the <strong>initial state</strong>.</li>
+<li>A state space forms a graph in which the nodes are states and the arcs between nodes are <strong>actions</strong>.</li>
+<li>In fact, the initial state and the actions define the state space.</li>
+</ul>
+<p><strong>An exammple: the vaccum model:</strong>
+<br></p>
+<p><img src="img/vaccum-model.png" alt="vaccum_model"></p>
+<ul>
+<li>States:
+<ul>
+<li>location, dirt</li>
+</ul>
+</li>
+<li>Actions:
+<ul>
+<li>left, right, suck</li>
+</ul>
+</li>
+<li>Goal:
+<ul>
+<li>celean world</li>
+</ul>
+</li>
+</ul>
+<p>State space graph:
+<br></p>
+<p><img src="img/state-grapth.png" alt="picture 3"></p>
+<h2 id="environment">Environment</h2>
+<ul>
+<li><strong>Observable</strong> / Partially: know the initial state</li>
+<li><strong>Static</strong> / Dynamic: the states don’t change when the agent search</li>
+<li><strong>Deterministic</strong> / Stochastic: the next state is defined only by current</li>
+<li><strong>Discrete</strong> / Continuous: time management</li>
+</ul>
+<h3 id="state-space-search">State space search</h3>
+<ul>
+<li>The formal definition does not talk about the way in which the information must be stored in the states or what are the operators that allow to pass from one state to the other.</li>
+<li>Depends on the specific problem.</li>
+<li>The formal definition gives a general framework that allows us to apply different methods to solving the problem.</li>
+</ul>
+<h3 id="tree-search">Tree search</h3>
+<ul>
+<li>Explore space by generating successors of already-explored states (“expanding” states).</li>
+<li>Evaluate every generated state: is it a goal state?</li>
+</ul>
+<h2 id="search-strategies">Search strategies</h2>
+<ul>
+<li>The search strategy is defined when we choose the order in which the nodes are expanded</li>
+<li>Types:
+<ul>
+<li>Uninformed or blind search: only available information is used in the problem definition (cost is not considered).</li>
+<li>Informed or heuristic search: the agent has additional information about the problem (estimate the cost to the goal).</li>
+</ul>
+</li>
+</ul>
+<h3 id="summary">Summary</h3>
+<ul>
+<li>Generate the <strong>search space</strong> by applying actions to the initial state and all further resulting states.</li>
+<li><strong>Problem</strong>: initial state, actions, transition model, goal test.</li>
+<li><strong>Solution</strong>: sequence of actions to goal.</li>
+<li><strong>Tree-search</strong> (don’t remember visited nodes) vs. <strong>Graph-search</strong> (do remember them).</li>
+<li><strong>Search strategy</strong> (Uninformed vs Informed).</li>
+</ul>
+<h3 id="performances-measures-of-search">Performances measures of search</h3>
+<ul>
+<li>Completeness: Always find a solution (if one exists)?</li>
+<li>Time complexity: Number of nodes generated</li>
+<li>Space complexity: Maximum number of nodes in memory</li>
+<li>Optimality: Always find a least-cost solution?</li>
+<li>Time and space complexity are measured in terms of
+<ul>
+<li>b: Maximum branching factor of the search tree</li>
+<li>d: Depth of the least-cost solution</li>
+<li>m: Maximum depth of the state space (maybe $\infty$)</li>
+</ul>
+</li>
+</ul>
+<h2 id="uninformed-search">Uninformed search</h2>
+<h3 id="uninformed-search-strategies">Uninformed search strategies</h3>
+<ul>
+<li>Uninformed search strategies use only the information available in the problem definition</li>
+<li>No analysis or knowledge of states, only:
+<ul>
+<li>Generate successor nodes</li>
+<li>Check for goal state</li>
+</ul>
+</li>
+<li>Specifically, no comparison of states</li>
+</ul>
+<p><u><strong>Types of search:</strong></u></p>
+<ul>
+<li>Breadth-first search</li>
+<li>Depth-first search</li>
+<li>Depth-limited search</li>
+<li>Iterative deepening search</li>
+</ul>
+<br>
+<ul>
+<li><img src="img/uninformed_table.png" alt="picture 5"></li>
+</ul>
+<h3 id="breadth-first-search"><strong>Breadth-first search</strong></h3>
+<p>Breadth-first search on a simple binary tree. At each stage, the node to be expanded next is indicated by the triangular marker.
+<br></p>
+<p><img src="img/Breadth-first.png" alt="Breadth-first"></p>
+<h3 id="depth-first-search"><strong>Depth-first search</strong></h3>
+<p>Depth-first search on a simple binary tree. At each stage, the node to be expanded next is the deepest node indicated by the triangular marker.
+<br></p>
+<p><img src="img/Depth-first.png" alt="Depth-first"></p>
+<h3 id="depth-limited-search"><strong>Depth-limited search</strong></h3>
+<p>In a depth-limited search, there can be a depth limit. If the depth limit is reached, the search is terminated. This is called <strong>depth-limited search</strong>. If the depth limit is set to infinity, then the search is equivalent to a depth-first search.
+<br></p>
+<p><img src="img/Depth-limit.png" alt="Depth-limit"></p>
+<h3 id="iterative-deepening-search"><strong>Iterative deepening search</strong></h3>
+<p>Iterative deepening search is a combination of depth-first search and breadth-first search. It is a depth-first search with a depth limit. The depth limit is increased after each iteration. The search is terminated when the goal is found or the depth limit is set to infinity.
+<br></p>
+<p><img src="img/Iterative-deepening.png" alt="picture 4"></p>
+<h2 id="informed-search">Informed search</h2>
+<h3 id="heuristics">Heuristics</h3>
+<p>A heuristic function, also simply called a heuristic, is a function that ranks  alternatives in search algorithms at each branching step based on available information to decide which branch to follow.<br>
+Formally, a heuristic is a function $h(n)$ for each expanded node, whish is the estimate of (optimal) cost to goal from node $n$</p>
+<ul>
+<li>To solve difficult search problems, it is necessary to find admissible heuristics</li>
+<li>To find admissible heuristics we have to solve relaxed problems (similar problems with fewer restrictions on possible actions)</li>
+<li>Building heuristics is a process of discovery, there is no mechanism</li>
+<li>However, heuristics are discovered by consulting simplified models of the problem domain</li>
+</ul>
+<h3 id="best-first-search"><strong>Best first search</strong></h3>
+<p>Best first search implementation by ordering the nodes by an
+evaluation function:</p>
+<ul>
+<li>Greedy: order by $h(n)$</li>
+<li>A* search: order by $f(n)$</li>
+</ul>
+<p>Search efficiency depends on heuristic quality</p>
+<h3 id="greedy-search"><strong>Greedy search</strong></h3>
+<p>$h(n)$ = estimate of cost from $n$ to goal<br>
+Greedy best-first search expands the node that appears to be
+closest to goal:</p>
+<ul>
+<li>Priority queue sort function = $h(n)$</li>
+</ul>
+<h3 id="a-search"><em><em>A</em> search</em>*</h3>
+<p>Idea: avoid expanding paths that are already expensive
+Priority queue sort function = $f(n)$<br>
+$f(n)$ = $g(n)+h(n)$ is the estimate of total cost to goal</p>
+<ul>
+<li>$g(n)$ is the known path cost so far to node n</li>
+<li>$h(n)$ is the estimate of (optimal) cost to goal from node n</li>
+<li>Priority = minimum $f(n)$</li>
+</ul>
+<h4 id="properties-of-a-search">Properties of A* search</h4>
+<ul>
+<li>Complete? Yes
+<ul>
+<li>Unless infinitely many nodes with $f &lt; f(G)$</li>
+</ul>
+</li>
+<li>Optimal? Yes
+<ul>
+<li>Tree-Search, admissible heuristic</li>
+<li>Graph-Search, consistent heuristic</li>
+</ul>
+</li>
+<li>Time/Space? $O(b^m)$
+<ul>
+<li>It is not practical for many large-scale problems</li>
+</ul>
+</li>
+</ul>
+<h3 id="admissible-heuristics">Admissible heuristics</h3>
+<p>An <strong>admissible heuristic</strong> never overestimates the cost to reach the goal
+A heuristic $h(n)$ is admissible if for every node $n, h(n) ≤ h*(n)$, where
+$h*(n)$ is the true cost to reach the goal state from $n$ (i.e., it is optimistic!)
+<u>Theorem:</u> if $h(n)$ is admissible, A* using Tree-Search is <strong>optimal</strong></p>
+<h3 id="consistent-heuristics">Consistent heuristics</h3>
+<p>A heuristic is <strong>consistent</strong> (or monotone) if for every node n, every successor $n'$ of $n$ generated by any action $a$<br>
+<br>
+$h(n) ≤ c(n,a,n') + h(n’)$<br>
+<br>
+If $h$ is consistent, we have<br>
+<br>
+$f(n') = g(n') + h(n’) = g(n) + c(n,a,n') + h(n') ≥ g(n) + h(n) = f(n)$<br>
+<br>
+i.e., <u>$f(n)$ is non-decreasing along any path</u>.<br>
+<br>
+Consistent → admissible (stronger condition)
+<u>Theorem:</u> if $h(n)$ is admissible, A* using Tree-Search is <strong>optimal</strong></p>
+<h3 id="particular-cases">Particular cases</h3>
+<ul>
+<li>$g(n) = 0;$   $h(n)=0;$   Random search.</li>
+<li>$g(n) = 1;$   $h(n)=0;$   Breadth-first search.</li>
+<li>$g(n) = 0;$   $h(n)!=0;$   Greedy search.</li>
+<li>$h*(n) ≤ h(n)$;   not optimal (pessimistic)</li>
+</ul>
+<h3 id="summary">Summary</h3>
+<ul>
+<li>Uninformed search has uses but also severe limitations</li>
+<li>Heuristics are a structured way to make search smarter</li>
+<li>Informed (or heuristic) search uses problem-specific heuristics to
+improve efficiency
+<ul>
+<li>GFBS, A*</li>
+<li>Techniques for generating heuristics</li>
+<li>A* is optimal with admissible (tree) / consistent (graph) heuristics</li>
+</ul>
+</li>
+<li>Can provide significant speed-ups in practice
+<ul>
+<li>Ex: 8-Puzzle, dramatic speed-up</li>
+<li>Still worst-case exponential time complexity (NP-complete)</li>
+</ul>
+</li>
+</ul>
+<h2 id="example-exercices">Example exercices</h2>
+<h3 id="1-a-search">1. A* search</h3>
+<br>
+<p><img src="img/Ex-1.png" alt="Ex-1"></p>
+
+</body>
+</html>
