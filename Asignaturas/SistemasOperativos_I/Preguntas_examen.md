@@ -257,7 +257,7 @@ Una de las características del SMP y que además da el nombre de simétrico, es
 
 #### En que cuatro categorías se pueden agrupar de forma genérica el trabajo en seguridad y protección relacionado con los sistemas operativos?
 
-a) Disponibilidad, confidencialidad, integridad de los datos y autenticidad.  
+<u>a) Disponibilidad, confidencialidad, integridad de los datos y autenticidad.</u>  
 b) Confidencialidad, unicidad, autenticidad y soporte a la programación modular.  
 c) Disponibilidad, integridad de los datos, unicidad y eficiencia.  
 d) Unicidad, disponibilidad, integridad de los datos y seguridad.  
