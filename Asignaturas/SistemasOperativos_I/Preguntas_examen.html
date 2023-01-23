@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Preguntas_examen.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<ul>
+<li><a href="#preguntas-examen-sistemas-operativos-1">Preguntas examen Sistemas Operativos 1</a>
+<ul>
+<li><a href="#tema-1">Tema 1</a>
+<ul>
+<li><a href="#qu%C3%A9-conducta-en-las-interrupciones-m%C3%BAltiples-es-m%C3%A1s-eficiente">Qué conducta, en las Interrupciones Múltiples, es más eficiente?</a></li>
+<li><a href="#cu%C3%A1les-son-las-caracter%C3%ADsticas-fundamentales-de-una-memoria">Cuáles son las características fundamentales de una Memoria?</a></li>
+<li><a href="#sobre-la-memoria-cach%C3%A9-cu%C3%A1l-de-estas-afirmaciones-es-cierta">Sobre la Memoria Caché, cuál de estas afirmaciones es cierta?</a></li>
+<li><a href="#cu%C3%A1ndo-puede-ocurrir-un-error-en-una-lista-pila">Cuándo puede ocurrir un error en una lista Pila?</a></li>
+<li><a href="#el-ciclo-de-instrucci%C3%B3n-con-interrupciones">El Ciclo de Instrucción con Interrupciones</a></li>
+<li><a href="#cu%C3%A1l-de-estos-m%C3%A9todos-de-es-es-el-m%C3%A1s-eficiente-para-sistemas-de-multiprogramaci%C3%B3n">¿Cuál de estos métodos de E/S es el más eficiente para sistemas de multiprogramación?</a></li>
+<li><a href="#a-medida-que-se-desciende-en-la-jerarqu%C3%ADa-de-memoria">A medida que se desciende en la jerarquía de memoria</a></li>
+<li><a href="#cu%C3%A1les-de-estos-son-registros-visibles-para-el-usuario">¿Cuáles de estos son registros visibles para el usuario?</a></li>
+<li><a href="#relacionado-con-dma-cu%C3%A1l-de-estas-sentencias-es-verdadera">Relacionado con DMA, cuál de estas sentencias es verdadera</a></li>
+<li><a href="#cu%C3%A1l-de-estas-opciones-es-una-estrategia-para-implementar-m%C3%BAltiples-instrucciones">¿Cuál de estas opciones es una estrategia para implementar múltiples instrucciones?</a></li>
+<li><a href="#cu%C3%A1l-de-estas-opciones-no-es-una-t%C3%A9cnica-de-comunicaci%C3%B3n-de-es">¿Cuál de estas opciones no es una técnica de comunicación de E/S?</a></li>
+<li><a href="#relacionado-con-la-jerarqu%C3%ADa-de-memoria-cu%C3%A1l-de-estas-sentencias-es-falsa">Relacionado con la jerarquía de memoria, cuál de estas sentencias es falsa?</a></li>
+</ul>
+</li>
+<li><a href="#tema-2">Tema 2</a>
+<ul>
+<li><a href="#cu%C3%A1les-eran-los-principales-problemas-de-las-m%C3%A1quinas-previas-a-los-sistemas-operativos-aquellas-que-utilizaban-procesos-en-serie">¿Cuáles eran los principales problemas de las máquinas previas a los Sistemas Operativos (aquellas que utilizaban procesos en serie)?</a></li>
+<li><a href="#cu%C3%A1les-son-los-posibles-problemas-de-los-procesos">¿Cuáles son los posibles problemas de los procesos?</a></li>
+<li><a href="#que-es-la-memoria-virtual">¿Que es la memoria virtual?</a></li>
+<li><a href="#c%C3%B3mo-funcionan-los-sistemas-en-lotes-multiprogramados-o-multitarea">¿Cómo funcionan los sistemas en lotes multiprogramados o multitarea?</a></li>
+<li><a href="#adem%C3%A1s-de-la-estrategia-round-robin-que-otra-estrategia-puede-seguir-el-dispatcher-a-la-hora-de-elegir-un-proceso-que-se-encuentra-en-la-cola-a-corto-plazo">Además de la estrategia round-robin, que otra estrategia puede seguir el dispatcher a la hora de elegir un proceso que se encuentra en la cola a corto plazo?</a></li>
+<li><a href="#que-significa-el-termino-sim%C3%A9trico-en-la-t%C3%A9cnica-de-multiprocesamiento-sim%C3%A9trico-smp">Que significa el termino simétrico en la técnica de multiprocesamiento simétrico (SMP)?</a></li>
+<li><a href="#en-que-cuatro-categor%C3%ADas-se-pueden-agrupar-de-forma-gen%C3%A9rica-el-trabajo-en-seguridad-y-protecci%C3%B3n-relacionado-con-los-sistemas-operativos">En que cuatro categorías se pueden agrupar de forma genérica el trabajo en seguridad y protección relacionado con los sistemas operativos?</a></li>
+<li><a href="#en-multiprogramaci%C3%B3n-en-que-consiste-la-t%C3%A9cnica-de-tiempo-compartido">En multiprogramación, en que consiste la técnica de tiempo compartido?</a></li>
+<li><a href="#un-so-importante-evolucionar%C3%A1-en-el-tiempo-por">Un S.O. Importante evolucionará en el tiempo por</a></li>
+<li><a href="#sobre-instrucciones-privilegiadas-en-sistemas-de-lotes-sencillos">Sobre instrucciones privilegiadas en sistemas de lotes sencillos</a></li>
+<li><a href="#algunas-de-las-responsabilidades-del-so-para-garantizar-un-control-eficiente-y-ordenado-de-asignaci%C3%B3n-de-recursos-en-un-entorno-de-computaci%C3%B3n-que-permita-programaci%C3%B3n-modular-y-uso-flexible-de-datos-son">Algunas de las responsabilidades del S.O. para garantizar un control eficiente y ordenado de asignación de recursos en un entorno de computación que permita programación modular y uso flexible de datos son</a></li>
+<li><a href="#las-capas-de-un-sistema-de-computaci%C3%B3n-en-orden-de-la-superior-a-la-m%C3%A1s-baja-son">Las capas de un sistema de computación en orden de la superior a la más baja son</a></li>
+</ul>
+</li>
+<li><a href="#tema-3">Tema 3</a>
+<ul>
+<li><a href="#un-proceso-mientras-est%C3%A9-ejecut%C3%A1ndose-en-cualquier-instante-puede-caracterizar-por-una-serie-de-elementos-que-pueden-ser">Un proceso, mientras esté ejecutándose, en cualquier instante puede caracterizar por una serie de elementos que pueden ser</a></li>
+<li><a href="#una-raz%C3%B3n-por-la-cual-se-termina-un-proceso-puede-ser">Una razón por la cual se termina un proceso puede ser</a></li>
+<li><a href="#para-que-el-sistema-operativo-pueda-manejar-un-proceso">Para que el sistema operativo pueda manejar un proceso</a></li>
+<li><a href="#cuando-se-crea-un-proceso-para-con-el-siguiente-%C3%B3rden">Cuando se crea un proceso para con el siguiente órden</a></li>
+<li><a href="#cual-de-las-siguientes-no-es-una-caracter%C3%ADstica-de-los-procesos-suspendidos">¿Cual de las siguientes no es una característica de los procesos suspendidos?</a></li>
+<li><a href="#que-significa-la-expulsi%C3%B3n-de-un-proceso">¿Que significa la expulsión de un proceso?</a></li>
+<li><a href="#cual-de-estas-no-es-una-categor%C3%ADa-general-de-informaci%C3%B3n-que-hay-en-el-bloque-de-control-de-proceso">¿Cual de estas no es una categoría general de información que hay en el bloque de control de proceso?</a></li>
+<li><a href="#cual-de-los-siguientes-no-es-uno-de-los-pasos-que-realiza-el-so-para-la-creaci%C3%B3n-de-un-proceso">¿Cual de los siguientes no es uno de los pasos que realiza el S.O. para la creación de un proceso?</a></li>
+<li><a href="#en-los-cambios-de-proceso">En los cambios de proceso</a></li>
+<li><a href="#los-pasos-a-seguir-para-cambiar-el-estado-de-un-proceso-son">Los pasos a seguir para cambiar el estado de un proceso son</a></li>
+<li><a href="#en-una-interrupci%C3%B3n-de-reloj">En una interrupción de reloj</a></li>
+<li><a href="#al-crear-un-proceso-cual-de-estas-opciones-no-es-correcta">Al crear un proceso. ¿Cual de estas opciones no es correcta?</a></li>
+</ul>
+</li>
+<li><a href="#tema-4">Tema 4</a>
+<ul>
+<li><a href="#qu%C3%A9-es-un-hilo">Qué es un hilo?</a></li>
+<li><a href="#principales-estados-de-los-hilos">Principales estados de los hilos</a></li>
+<li><a href="#cuantas-operaciones-b%C3%A1sicas-relacionadas-con-los-hilos-est%C3%A1n-relacionadas-con-el-cambio-de-estado-del-hilo">Cuantas operaciones básicas relacionadas con los hilos están relacionadas con el cambio de estado del hilo</a></li>
+<li><a href="#caracter%C3%ADsticas-para-el-dise%C3%B1o-de-sistemas-operativos-multiprocesador">Características para el diseño de sistemas operativos multiprocesador</a></li>
+<li><a href="#dentro-de-un-proceso-puede-haber-uno-o-m%C3%A1s-hilos-cada-uno-con">Dentro de un proceso puede haber uno o más hilos cada uno con</a></li>
+<li><a href="#cual-de-estos-es-un-beneficio-de-la-organizaci%C3%B3n-micron%C3%BAcleo">Cual de estos es un beneficio de la organización micronúcleo</a></li>
+<li><a href="#los-hilos-a-nivel-de-usuario-ult">Los hilos a nivel de usuario (ULT)</a></li>
+<li><a href="#los-hilos-a-nivel-de-n%C3%BAcleo-klt">Los hilos a nivel de núcleo (KLT)</a></li>
+<li><a href="#sobre-la-arquitectura-micron%C3%BAcleo">Sobre la arquitectura micronúcleo</a></li>
+<li><a href="#en-un-modelo-de-proceso-multihilo">En un modelo de proceso multihilo</a></li>
+<li><a href="#a-que-se-refiere-el-concepto-multihilo">A que se refiere el concepto multihilo</a></li>
+<li><a href="#que-permite-la-arquitectura-micron%C3%BAcleo-sobre-la-gesti%C3%B3n-de-es-e-interrupciones">Que permite la arquitectura micronúcleo sobre la gestión de E/S e interrupciones</a></li>
+</ul>
+</li>
+<li><a href="#tema-5">Tema 5</a>
+<ul>
+<li><a href="#los-temas-centrales-del-dise%C3%B1o-de-sistemas-operativos-relacionados-con-la-gesti%C3%B3n-de-procesos-e-hilos-son">Los temas centrales del diseño de sistemas operativos, relacionados con la gestión de procesos e hilos son</a></li>
+<li><a href="#se%C3%B1ala-la-opci%C3%B3n-falsa">Señala la opción falsa</a></li>
+<li><a href="#indica-cu%C3%A1l-de-%C3%A9stas-definiciones-corresponde-con-el-t%C3%A9rmino-de-interbloqueo">Indica cuál de éstas definiciones corresponde con el término de interbloqueo</a></li>
+<li><a href="#indica-cu%C3%A1l-no-es-un-requisito-para-la-exclusi%C3%B3n-mutua">Indica cuál no es un requisito para la exclusión mutua</a></li>
+<li><a href="#indica-cu%C3%A1l-es-una-desventaja-del-uso-de-una-instrucci%C3%B3n-m%C3%A1quina-especial-para-conseguir-exclusi%C3%B3n-mutua">Indica cuál es una desventaja del uso de una instrucción máquina especial para conseguir exclusión mutua</a></li>
+<li><a href="#cual-es-el-principio-fundamental-del-sem%C3%A1foro">¿Cual es el principio fundamental del semáforo?</a></li>
+<li><a href="#que-hace-un-semwait-y-un-semsignal">¿Que hace un semWait y un semSignal?</a></li>
+<li><a href="#si-tenemos-tres-procesos-usando-un-recursocontador-sem%C3%A1foro-est%C3%A1---2-y-un-proceso-sale-y-hace-un-semsignal-contador-sem%C3%A1foro---1-y-tenemos-varios-procesos-en-la-cola-de-bloqueados-del-sem%C3%A1foro-como-y-cuando-pueden-entrar-a-usar-el-recurso-que-han-dejado-disponible">¿Si tenemos tres procesos usando un recurso(contador semáforo está = -2) y un proceso sale y hace un semSignal (contador semáforo = -1), y tenemos varios procesos en la cola de bloqueados del semáforo, como y cuando pueden entrar a usar el recurso que han dejado disponible?</a></li>
+<li><a href="#cual-es-la-diferencia-entre-un-sem%C3%A1foro-fuerte-y-uno-debil">¿Cual es la diferencia entre un semáforo fuerte y uno debil?</a></li>
+<li><a href="#como-actua-el-sem%C3%A1foro-para-solucionar-el-problema-del-productorconsumidor">¿Como actua el semáforo, para solucionar el problema del productor/consumidor?</a></li>
+<li><a href="#c%C3%B3mo-hace-un-programa-para-entrar-en-el-monitor">Cómo hace un programa para entrar en el monitor?</a></li>
+<li><a href="#como-se-consigue-la-sincronizaci%C3%B3n-entre-procesos-usando-un-monitor-es-decir-c%C3%B3mo-puede-informar-a-otro-proceso-bloqueado-que-un-recurso-est%C3%A1-disponible">Como se consigue la sincronización entre procesos usando un monitor, es decir cómo puede informar a otro proceso bloqueado que un recurso está disponible?</a></li>
+<li><a href="#en-el-caso-de-sem%C3%A1foros-para-asegurar-exclusi%C3%B3n-mutua-sobre-varios-recursos-se-necesitan-tantos-como-recursos-se-quieran-proteger-en-el-caso-de-un-monitor-c%C3%B3mo-se-consigue">En el caso de semáforos para asegurar exclusión mutua sobre varios recursos se necesitan tantos como recursos se quieran proteger. En el caso de un monitor cómo se consigue?</a></li>
+<li><a href="#que-sucede-cuando-un-proceso-que-est%C3%A1-dentro-del-monitor-ejecuta-un-signal-sobre-una-variable-condicional">Que sucede cuando un proceso que está dentro del monitor ejecuta un signal sobre una variable condicional</a></li>
+<li><a href="#con-qu%C3%A9-implementaci%C3%B3n-de-paso-de-mensajes-no-tienen-que-esperar-el-emisor-ni-el-receptor">Con qué implementación de paso de mensajes no tienen que esperar el emisor ni el receptor?</a></li>
+<li><a href="#en-qu%C3%A9-tipo-de-direccionamiento-en-los-mensajes-entre-procesos-se-refiere-al-mailbox-como-port">En qué tipo de direccionamiento en los mensajes entre procesos se refiere al mailbox como port?</a></li>
+<li><a href="#una-forma-de-implementar-la-cola-de-mensajes-es-con-un-fifo-pero-si-algunos-mensajes-pueden-ser-m%C3%A1s-urgentes-que-otros-una-opci%C3%B3n-es">Una forma de implementar la cola de mensajes es con un FIFO, pero si algunos mensajes pueden ser más urgentes que otros una opción es</a></li>
+<li><a href="#cu%C3%A1l-de-los-siguientes-elementos-no-se-encuentra-en-la-cabecera-un-mensaje-t%C3%ADpico">Cuál de los siguientes elementos NO se encuentra en la cabecera un mensaje típico</a></li>
+</ul>
+</li>
+<li><a href="#tema-6">Tema 6</a>
+<ul>
+<li><a href="#en-qu%C3%A9-categorias-se-pueden-dividir-los-recursos">En qué categorias se pueden dividir los recursos?</a></li>
+<li><a href="#de-las-listas-siguientes-en-cual-de-ellas-todos-los-recursos-son-reutilizables">De las listas siguientes, en cual de ellas todos los recursos son reutilizables?</a></li>
+<li><a href="#cuales-son-los-m%C3%A9todos-generales-para-hacer-frente-al-interbloqueo">Cuales son los métodos generales para hacer frente al interbloqueo?</a></li>
+<li><a href="#se%C3%B1ala-que-opci%C3%B3n-es-correcta">Señala que opción es correcta</a></li>
+<li><a href="#cual-de-las-siguientes-afirmaciones-es-falsa">Cual de las siguientes afirmaciones es falsa?</a></li>
+<li><a href="#en-qu%C3%A9-consiste-la-prevencion-del-interbloqueo">En qué consiste la prevencion del interbloqueo?</a></li>
+<li><a href="#que-tipos-de-tuberias-existen-en-unix">Que tipos de tuberias existen en UNIX?</a></li>
+<li><a href="#de-cuales-de-los-siguientes-elementos-no-consta-un-sem%C3%A1foro">De cuales de los siguientes elementos no consta un semáforo?</a></li>
+<li><a href="#qu%C3%A9-condiciones-debe-haber-para-que-siempre-se-produzca-un-interbloqueo">Qué condiciones debe haber para que, siempre, se produzca un interbloqueo?</a></li>
+<li><a href="#cual-de-las-siguientes-afirmaciones-sobre-las-tuber%C3%ADas-es-falsa">Cual de las siguientes afirmaciones sobre las tuberías es falsa?</a></li>
+<li><a href="#cual-de-los-siguientes-tipos-de-semaforos-no-existe">Cual de los siguientes tipos de semaforos no existe?</a></li>
+<li><a href="#elije-la-opci%C3%B3n-correcta">Elije la opción correcta</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="preguntas-examen-sistemas-operativos-1">Preguntas examen Sistemas Operativos 1</h1>
+<h2 id="tema-1">Tema 1</h2>
+<h4 id="qu%C3%A9-conducta-en-las-interrupciones-m%C3%BAltiples-es-m%C3%A1s-eficiente">Qué conducta, en las Interrupciones Múltiples, es más eficiente?</h4>
+<p>a) Cuando se recibe una interrupción se para completamente el proceso actual y se procesa la Interrupción.<br>
+<u>b) Cuando se recibe una interrupción más prioritaria que el proceso actual, se para el proceso y se sigue con la Interrupción.</u><br>
+c) Se deja en espera la Interrupción hasta que se haya acabado el proceso actual.<br>
+d) Ningún caso anterior es cierto.</p>
+<h4 id="cu%C3%A1les-son-las-caracter%C3%ADsticas-fundamentales-de-una-memoria">Cuáles son las características fundamentales de una Memoria?</h4>
+<p><u>a) Cantidad, Velocidad y Coste.</u><br>
+b) Coste, Tipo (HD o Flash), Cantidad.<br>
+c) Cantidad.<br>
+d) Ninguna de las anteriores es cierta.</p>
+<h4 id="sobre-la-memoria-cach%C3%A9-cu%C3%A1l-de-estas-afirmaciones-es-cierta">Sobre la Memoria Caché, cuál de estas afirmaciones es cierta?</h4>
+<p>a) La Memoria Caché es una memoria barata, de tipo RAM.<br>
+b) Es un dispositivo de memoria muy rápido que es usado por la CPU, donde se carga parte del código que se va a ejecutar.<br>
+c) Puede ser una parte reservada de la Memoria Principal.<br>
+<u>d) B y C son correctas.</u></p>
+<h4 id="cu%C3%A1ndo-puede-ocurrir-un-error-en-una-lista-pila">Cuándo puede ocurrir un error en una lista Pila?</h4>
+<p>a) Cuando intentemos sacar la cima de la Pila.<br>
+b) Cuando intentemos meter un elemento en el Fondo de la Pila en una Pila Vacía.<br>
+<u>c) Cuando intentemos meter un elemento en una Pila Llena.</u><br>
+d) Cuando intentemos sacar un elemento del Fondo de la Pila.</p>
+<h4 id="el-ciclo-de-instrucci%C3%B3n-con-interrupciones">El Ciclo de Instrucción con Interrupciones</h4>
+<p>a) Se realiza íntegramente por el hardware del ordenador.<br>
+b) Consta de dos Fases.<br>
+<u>c) Consta de tres Fases.</u>
+d) Ninguna de las anteriores.</p>
+<h4 id="%C2%BFcu%C3%A1l-de-estos-m%C3%A9todos-de-es-es-el-m%C3%A1s-eficiente-para-sistemas-de-multiprogramaci%C3%B3n">¿Cuál de estos métodos de E/S es el más eficiente para sistemas de multiprogramación?</h4>
+<p><u>a) DMA.</u><br>
+b) Basado en interrupciones.<br>
+c) Programada.<br>
+d) Polling.</p>
+<p>La DMA es la más eficiente porque transfiere bloques de datos, palabra a palabra, hacia/desde la memoria sin pasar por el procesador (involucrado solamente al principio y al final de la transferencia)</p>
+<h4 id="a-medida-que-se-desciende-en-la-jerarqu%C3%ADa-de-memoria">A medida que se desciende en la jerarquía de memoria</h4>
+<p>a) Aumenta el coste por bit.<br>
+<u>b) Aumenta el tiempo de acceso.</u><br>
+c) Disminuye la capacidad.<br>
+d) Ninguna de las anteriores.</p>
+<p>Cuanto mayor es la capacidad de la memoria (más abajo de la jerarquía se encuentra). Por esto, la velocidad de acceso es menor y por lo tanto, el tiempo de acceso es mayor.</p>
+<h4 id="%C2%BFcu%C3%A1les-de-estos-son-registros-visibles-para-el-usuario">¿Cuáles de estos son registros visibles para el usuario?</h4>
+<p>a) Puntero de Pila, Registro de Instrucción y Puntero de Segmento.<br>
+b) Registro de instrucción, Contador de Programa y Puntero de Pila.<br>
+c) Registro Índice, Puntero de Segmento y Registro de Instrucción.<br>
+<u>d) Puntero de Pila, Registro Índice y Puntero de Segmento.</u></p>
+<p>Los registros visibles por el usuario son los Registros de Datos, el Registro Índice, el Puntero de Segmento y el Puntero de Pila. Algunos otros, como el Contador de Programa o el Registro de Instrucción son registros de control que solo son visibles por el programador.</p>
+<h4 id="relacionado-con-dma-cu%C3%A1l-de-estas-sentencias-es-verdadera">Relacionado con DMA, cuál de estas sentencias es verdadera</h4>
+<p>a) La tasa de Transferencia de E/S no está limitada por la velocidad con la que el procesador puede comprobar el estado de un dispositivo y ofrecerle un servicio.<br>
+b) El procesador puede no estar involucrado en la gestión de E/S.<br>
+<u>c) Se deben ejecutar varias instrucciones para cada transferencia de E/S.</u><br>
+d) Ninguna es correcta.</p>
+<p>Para una transferencia de E/S, se necesitan algunas instrucciones, como lo que se desea leer o escribir, entre otras.</p>
+<h4 id="%C2%BFcu%C3%A1l-de-estas-opciones-es-una-estrategia-para-implementar-m%C3%BAltiples-instrucciones">¿Cuál de estas opciones es una estrategia para implementar múltiples instrucciones?</h4>
+<p>a) Utilizar contadores.<br>
+<u>b) Establecer prioridades.</u><br>
+c) Semáforos<br>
+d) Ninguna de las anteriores.</p>
+<p>Las estrategias para implementar múltiples instrucciones son por Prioridades o por Interrupciones.</p>
+<h4 id="%C2%BFcu%C3%A1l-de-estas-opciones-no-es-una-t%C3%A9cnica-de-comunicaci%C3%B3n-de-es">¿Cuál de estas opciones no es una técnica de comunicación de E/S?</h4>
+<p>a) Programada.<br>
+b) Dirigida por Interruciones.<br>
+<u>c) Semáforos.</u><br>
+d) DMA.</p>
+<p>El uso de semáforos no es una técnica de comunicación de E/S, sino de uso de los recursos del sistema.</p>
+<h4 id="relacionado-con-la-jerarqu%C3%ADa-de-memoria-cu%C3%A1l-de-estas-sentencias-es-falsa">Relacionado con la jerarquía de memoria, cuál de estas sentencias es falsa?</h4>
+<p>a) A menor tiempo de acceso, mayor coste por bit.<br>
+b) A mayor capacidad, menor coste por bit.<br>
+c) A mayor capacidad, menor velocidad de acceso.<br>
+<u>d) A menor tiempo de acceso, menor velocidad de acceso.</u></p>
+<p>Si se reduce el tiempo de acceso, al ser inversamente proporcional a la velocidad de acceso, esta última aumentaría.</p>
+<h2 id="tema-2">Tema 2</h2>
+<h4 id="%C2%BFcu%C3%A1les-eran-los-principales-problemas-de-las-m%C3%A1quinas-previas-a-los-sistemas-operativos-aquellas-que-utilizaban-procesos-en-serie">¿Cuáles eran los principales problemas de las máquinas previas a los Sistemas Operativos (aquellas que utilizaban procesos en serie)?</h4>
+<p>a) Planificación y salida en la impresora.<br>
+b) Programación a nivel físico y coste.<br>
+<u>c) Planificación y tiempo de configuración.</u><br>
+d) Tiempo de configuración y dificultad de localizar los errores.</p>
+<p>Planificación: muy frecuente malgastar tiempo de procesamiento del computador.<br>
+Tiempo de configuración: carga en memoria del compilador, lenguaje de alto nivel del programa, enlace al programa objeto y funciones comunes; todo a base de montar y desmontar cintas en el computador.</p>
+<h4 id="%C2%BFcu%C3%A1les-son-los-posibles-problemas-de-los-procesos">¿Cuáles son los posibles problemas de los procesos?</h4>
+<p>a) Inanición, sincronización incorrecta e interbloqueo.<br>
+<u>b) Sincronización incorrecta, violación de la exclusión mutua, funcionamiento no determinista e interbloqueo.</u><br>
+c) Violación de la exclusión mutua y no ejecución.<br>
+d) Sincronización incorrecta, funcionamiento determinista e interbloqueo.</p>
+<p>La respuesta A no puede ser porque la inanición no es un problema por si solo, sino que viene dentro de la violación de la exclusión mutua.<br>
+La respuesta C no puede ser porque es incompleta i, además, la no ejecución es inanición y se da el mismo caso que en la respuesta A.<br>
+La respuesta D no puede ser porque que un proceso funcione de manera determinista no es un problema, es correcto.</p>
+<h4 id="%C2%BFque-es-la-memoria-virtual">¿Que es la memoria virtual?</h4>
+<p><u>a) Es un mecanismo accesible para todos los procesos que permite direccionar memoria sin importar la cantidad de memoria física.</u><br>
+b) El conjunto de la memoria secundaria y la memora auxiliar.<br>
+c) Memoria de procesos subdividida en páginas en las que el acceso a estas no es transparente para el programador.<br>
+d) Es un concepto prácticamente inédito sobre el que se esta investigando.</p>
+<p>La respuesta B no puede ser porque la memoria virtual no es el conjunto de esas memorias.<br>
+La respuesta C no puede ser porque el acceso a las páginas SI es transparente para el programador.<br>
+La respuesta D no puede ser porque la memoria virtual se utiliza desde hace tiempo.</p>
+<h4 id="%C2%BFc%C3%B3mo-funcionan-los-sistemas-en-lotes-multiprogramados-o-multitarea">¿Cómo funcionan los sistemas en lotes multiprogramados o multitarea?</h4>
+<p>a) Bloquea cualquier ejecución menos la del programa que esta ejecutándose hasta que este acabe.<br>
+<u>b) Permite la ejecución de diversos programas a la vez (ejecución en paralelo), mejorando la eficiencia al ejecutar un programa durante el tiempo de espera de otro.</u><br>
+c) Permite la ejecución de programas en serie, uno detrás de otro.<br>
+d) Permite la ejecución de hasta dos programas en paralelo.</p>
+<p>La respuesta A no puede ser porque la multitarea no bloquea al resto de programas.<br>
+La respuesta C no puede ser porque la multitarea ejecuta los procesos en paralelo.<br>
+La respuesta D no puede ser porque permite la ejecución de más de dos programas en paralelo.</p>
+<h4 id="adem%C3%A1s-de-la-estrategia-round-robin-que-otra-estrategia-puede-seguir-el-dispatcher-a-la-hora-de-elegir-un-proceso-que-se-encuentra-en-la-cola-a-corto-plazo">Además de la estrategia round-robin, que otra estrategia puede seguir el dispatcher a la hora de elegir un proceso que se encuentra en la cola a corto plazo?</h4>
+<p>a) FILO. El primero que ha entrado en la cola sera el último en salir de ella.<br>
+<u>b) Asignar niveles de prioridad.</u><br>
+c) Ninguna es correcta.<br>
+d) LIFO. El último en entrar en la cola sera el primero en salir.</p>
+<p>La estrategia común del dispatcher (o planificador) es la técnica conocida como roundrobin o turno rotatorio; pero además de esta, hay otra estrategia que consiste en asignar niveles de prioridad a los distintos procesos, siendo el planificador el encargado de elegir los procesos en el orden de prioridad.</p>
+<h4 id="que-significa-el-termino-sim%C3%A9trico-en-la-t%C3%A9cnica-de-multiprocesamiento-sim%C3%A9trico-smp">Que significa el termino simétrico en la técnica de multiprocesamiento simétrico (SMP)?</h4>
+<p>a) Que el computador tiene un número par de procesadores.<br>
+b) Que cada proceso está formado por dos únicos hilos.<br>
+<u>c) Que todos los procesadores pueden realizar las mismas funciones.</u><br>
+d) Todas las opciones anteriores son ciertas.</p>
+<p>Una de las características del SMP y que además da el nombre de simétrico, es que todos los procesadores pueden realizar las mismas funciones, es decir, que todos los procesadores comparten el acceso a memoria.</p>
+<h4 id="en-que-cuatro-categor%C3%ADas-se-pueden-agrupar-de-forma-gen%C3%A9rica-el-trabajo-en-seguridad-y-protecci%C3%B3n-relacionado-con-los-sistemas-operativos">En que cuatro categorías se pueden agrupar de forma genérica el trabajo en seguridad y protección relacionado con los sistemas operativos?</h4>
+<p>a) Disponibilidad, confidencialidad, integridad de los datos y autenticidad.<br>
+b) Confidencialidad, unicidad, autenticidad y soporte a la programación modular.<br>
+c) Disponibilidad, integridad de los datos, unicidad y eficiencia.<br>
+d) Unicidad, disponibilidad, integridad de los datos y seguridad.</p>
+<p>La mayoría del trabajo en seguridad y protección relacionado con los sistemas operativos se puede agrupar de forma genérica en cuatro categorías: Disponibilidad, Confidencialidad, Integridad de los datos y Autenticidad.</p>
+<h4 id="en-multiprogramaci%C3%B3n-en-que-consiste-la-t%C3%A9cnica-de-tiempo-compartido">En multiprogramación, en que consiste la técnica de tiempo compartido?</h4>
+<p>a) En compartir el tiempo de procesador entre múltiples procesos.<br>
+<u>b) En compartir el tiempo de procesador entre múltiples usuarios.</u><br>
+c) En compartir el tiempo de procesador entre todos los recursos.<br>
+d) Ninguna de las anteriores es correcta.<br>
+La multiprogramación también se puede utilizar para gestionar múltiples trabajos interactivos, en este caso, la técnica se denomina tiempo compartido, porque comparte el tiempo de procesador entre múltiples usuarios</p>
+<h4 id="un-so-importante-evolucionar%C3%A1-en-el-tiempo-por">Un S.O. Importante evolucionará en el tiempo por</h4>
+<p>a) Resolución de fallos.<br>
+b) Actualizaciones del hardware.<br>
+<u>c) Todas son correctas.</u><br>
+d) Nuevos servicios.<br>
+c) Todas son correctas.</p>
+<p>Son las tres razones de la evolucion de los sistemas operativos importantes.</p>
+<h4 id="sobre-instrucciones-privilegiadas-en-sistemas-de-lotes-sencillos">Sobre instrucciones privilegiadas en sistemas de lotes sencillos</h4>
+<p>a) Solamente pueden ser ejecutadas en modo de “SuperUsuario”.<br>
+b) Son ejecutadas directamente por el monitor.<br>
+<u>c) Permite que un programa de usuario realice operaciones de E/S.</u><br>
+d) Ninguna es correcta.<br>
+c) Sabiendo que las instrucciones de E/S son privilegiadas y deben ser ejecutadas por el monitor, si el programa de usuario desea realizar operaciones de E/S, debe solicitar al monitor que realice las operaciones por él.</p>
+<p>B → NO, son ejecutadas por el programa usuario y cuando ven que son instrucciones privilegiadas mediante un error se transfiere la instrucción al monitor.</p>
+<h4 id="algunas-de-las-responsabilidades-del-so-para-garantizar-un-control-eficiente-y-ordenado-de-asignaci%C3%B3n-de-recursos-en-un-entorno-de-computaci%C3%B3n-que-permita-programaci%C3%B3n-modular-y-uso-flexible-de-datos-son">Algunas de las responsabilidades del S.O. para garantizar un control eficiente y ordenado de asignación de recursos en un entorno de computación que permita programación modular y uso flexible de datos son</h4>
+<p>a) Soporte a la programación modular.<br>
+<u>b) Todas son correctas.</u><br>
+c) Aislamiento de procesos.<br>
+d) Almacenamiento a largo plazo.<br>
+b) Son tres de las cinco responsabilidades estudiadas.</p>
+<h4 id="las-capas-de-un-sistema-de-computaci%C3%B3n-en-orden-de-la-superior-a-la-m%C3%A1s-baja-son">Las capas de un sistema de computación en orden de la superior a la más baja son</h4>
+<p>a) Utilidades, Sistema Operativo, Hardware del computador.<br>
+b) Utilidades, Firmware, Sistema Operativo, Hardware del computador.<br>
+c) Utilidades, Programas de aplicación, Sistema Operativo, Hardware del computador.<br>
+<u>d) Programas de aplicación, Utilidades, Sistema Operativo, Hardware del computador.</u></p>
+<h2 id="tema-3">Tema 3</h2>
+<h4 id="un-proceso-mientras-est%C3%A9-ejecut%C3%A1ndose-en-cualquier-instante-puede-caracterizar-por-una-serie-de-elementos-que-pueden-ser">Un proceso, mientras esté ejecutándose, en cualquier instante puede caracterizar por una serie de elementos que pueden ser</h4>
+<p>a) Identificador, Estado, Prioridad y número de líneas de código.<br>
+b) Identificador, Estado, Ubicación en el sistema, Permisos de ejecución.<br>
+<u>c) Identificador, Prioridad, Datos de contexto y información de estado de E/S</u><br>
+d) Nombre, Identificador, Prioridad y contador de programa.</p>
+<h4 id="una-raz%C3%B3n-por-la-cual-se-termina-un-proceso-puede-ser">Una razón por la cual se termina un proceso puede ser</h4>
+<p>a) Por exceder un tiempo límite.<br>
+b) Que el sistema no disponga de suficiente memoria.<br>
+c) Porque el proceso padre decide finalizarlo.<br>
+<u>d) Todas las anteriores son correctas.</u></p>
+<h4 id="para-que-el-sistema-operativo-pueda-manejar-un-proceso">Para que el sistema operativo pueda manejar un proceso</h4>
+<p><u>a) Necesita muchísima información del proceso.</u><br>
+b) Es suficiente con el ID, los registros y el puntero de la pila.<br>
+c) Es suficiente con el ID y la información de estado del procesador.<br>
+d) El SO puede acceder a todos los datos necesarios a través del ID.</p>
+<h4 id="cuando-se-crea-un-proceso-para-con-el-siguiente-%C3%B3rden">Cuando se crea un proceso para con el siguiente órden</h4>
+<p>a) Reservar memoria, asignar un ID, inicializar el BCP y ejecutarlo.<br>
+<u>b) Asignar un ID, reservar memoria, inicializar el BCP, establecer los enlaces y creación de estructura de datos.</u><br>
+c) Reservar memoria, asignar un ID, inicializar BCP, inicializar enlaces y expandir otras estructuras de datos.<br>
+d) Reservar memoria, asignar un ID, establecer enlaces, inicializaciones y ejecución.</p>
+<h4 id="%C2%BFcual-de-las-siguientes-no-es-una-caracter%C3%ADstica-de-los-procesos-suspendidos">¿Cual de las siguientes no es una característica de los procesos suspendidos?</h4>
+<p>a) El proceso no está inmediatamente disponible para su ejecución.<br>
+b) El proceso puede estar o no a la espera de un evento.<br>
+<u>c) El proceso siempre estará disponible una vez pasado un determinado tiempo.</u><br>
+d) El proceso no puede ser recuperado de este estado hasta que el agente explícitamente así lo indique.</p>
+<p>La respuesta correcta es la “c”, ya que si el agente no indica lo contrario, un proceso puede estar suspendido durante un tiempo indefinido.</p>
+<h4 id="%C2%BFque-significa-la-expulsi%C3%B3n-de-un-proceso">¿Que significa la expulsión de un proceso?</h4>
+<p>a) Un proceso es expulsado cuando ha finalizado.<br>
+<u>b) Un proceso es expulsado cuando estando en ejecución es sustituido por otro que estaba bloqueado, el cual es de prioridad superior, cuando se produce el evento esperado.</u><br>
+c) Un proceso es expulsado cuando estando en ejecución es sustituido por otro.<br>
+d) Es cuando se finaliza un proceso debido a un exceso de procesos.</p>
+<p>La respuesta “b” es la correcta, ya que es la definición completa de proceso expulsado.</p>
+<h4 id="%C2%BFcual-de-estas-no-es-una-categor%C3%ADa-general-de-informaci%C3%B3n-que-hay-en-el-bloque-de-control-de-proceso">¿Cual de estas no es una categoría general de información que hay en el bloque de control de proceso?</h4>
+<p>a) Identificación del proceso.<br>
+b) Información de estado del procesador.<br>
+<u>c) Identificación del procesador.</u><br>
+d) Información de control del proceso.</p>
+<p>La respuesta “c” es la correcta ya que no existe en un bloque de control de proceso.</p>
+<h4 id="%C2%BFcual-de-los-siguientes-no-es-uno-de-los-pasos-que-realiza-el-so-para-la-creaci%C3%B3n-de-un-proceso">¿Cual de los siguientes no es uno de los pasos que realiza el S.O. para la creación de un proceso?</h4>
+<p><u>a) Eliminar algún proceso suspendido.</u><br>
+b) Reservar espacio para el proceso.<br>
+c) Inicializar el bloque de control del proceso.<br>
+d) Establecer los enlaces apropiados.</p>
+<p>No es necesario eliminar ningún otro proceso para crear uno nuevo, por lo tanto la
+respuesta correcta es la “a”.</p>
+<h4 id="en-los-cambios-de-proceso">En los cambios de proceso</h4>
+<p>a) La interrupción y el cepo son lo mismo.<br>
+b) El cepo es originado por un proceso externo e independiente.<br>
+c) El cepo es generado por una excepción de un proceso externo e independiente.<br>
+<u>d) La interrupción es generada por un proceso externo e independiente, como por ejemplo la culminación de una operación E/S</u></p>
+<p>El cepo es generado por una excepción sólo del proceso en curso, las interrupciones siempre son generadas por procesos externos.</p>
+<h4 id="los-pasos-a-seguir-para-cambiar-el-estado-de-un-proceso-son">Los pasos a seguir para cambiar el estado de un proceso son</h4>
+<p>a) Salvar contexto del procesador, seleccionar otro proceso para ejecución, restaurar el contexto del procesador.<br>
+<u>b) Salvar contexto del procesador, actualizar el bloque de control del proceso, mover bloque de control del proceso a la cola apropiada, seleccionar otro proceso para ejecución, actualizar el bloque de control del proceso seleccionado, actualizar el bloque de estructuras de datos de gestión de memoria y restaurar el contexto del procesador</u><br>
+c) No existen unos pasos predefinidos.<br>
+d) Seleccionar otro proceso para ejecución, restaurar el contexto del procesador.</p>
+<h4 id="en-una-interrupci%C3%B3n-de-reloj">En una interrupción de reloj</h4>
+<p>a) El sistema operativo determina exactamente que se ha producido una acción de E/S.<br>
+<u>b) El sistema operativo determina si el proceso que está en ejecución ha estado ejecutando durante la fracción máxima de tiempo permitida.</u><br>
+c) El proceso genera la interrupción porque ha acabado.<br>
+d) El sistema operativo determina que se ha producido un error.</p>
+<p>Como su nombre indica, esta interrupción es en relación al tiempo asignado al proceso.</p>
+<h4 id="al-crear-un-proceso-%C2%BFcual-de-estas-opciones-no-es-correcta">Al crear un proceso. ¿Cual de estas opciones no es correcta?</h4>
+<p>a) Se debe asignar espacio para el proceso.<br>
+b) Se deben establecer los enlaces apropiados.<br>
+c) Puede haber otras estructuras de datos que crear o ampliar.<br>
+<u>d) Hay que asignar cualquier identificador al proceso.</u></p>
+<p>El identificador debe ser único</p>
+<h2 id="tema-4">Tema 4</h2>
+<h4 id="qu%C3%A9-es-un-hilo">Qué es un hilo?</h4>
+<p>a) Un proceso.<br>
+<u>b) Conjunto de instrucciones de un proceso.</u><br>
+c) La primera instrucción de un programa.<br>
+d) Todas las anteriores son correctas.</p>
+<p>Por definición</p>
+<h4 id="principales-estados-de-los-hilos">Principales estados de los hilos</h4>
+<p>a) Creado, Bloqueado, Desbloqueado<br>
+b) Listo, Bloqueado, Finalizado<br>
+<u>c) Ejecutando, Listo, Bloqueado</u><br>
+d) Creado, Finalizado</p>
+<p>Las otras contienen operaciones del estado de un hilo.</p>
+<h4 id="cuantas-operaciones-b%C3%A1sicas-relacionadas-con-los-hilos-est%C3%A1n-relacionadas-con-el-cambio-de-estado-del-hilo">Cuantas operaciones básicas relacionadas con los hilos están relacionadas con el cambio de estado del hilo</h4>
+<p>a) 2<br>
+b) 3<br>
+<u>c) 4</u><br>
+d) 5</p>
+<p>Creación, Bloqueo, Desbloqueo, Finalización.</p>
+<h4 id="caracter%C3%ADsticas-para-el-dise%C3%B1o-de-sistemas-operativos-multiprocesador">Características para el diseño de sistemas operativos multiprocesador</h4>
+<p><u>a) Procesos simultáneos concurrentes, posibilidad de planificar múltiples hilos del mismo proceso simultáneamente en múltiples procesadores, el sistema operativo no debe degradarse en caso de fallo de un procesador.</u><br>
+b) El mismo hilo se ejecuta simultáneamente en múltiples procesadores usando el sistema el de tiempo más reducido.<br>
+c) Todos los procesos de núcleo se ejecutan en un procesador y los de usuario en otro.<br>
+d) Todas las respuestas son correctas</p>
+<h4 id="dentro-de-un-proceso-puede-haber-uno-o-m%C3%A1s-hilos-cada-uno-con">Dentro de un proceso puede haber uno o más hilos cada uno con</h4>
+<p>a) Estado de ejecución, contexto del procesador, pila de ejecució, acceso a memoria y recursos del proceso<br>
+b) Estado de ejecución, contexto del procesador y pila de ejcución<br>
+c) Contexto del procesador, pila de ejecución y espacio para variables locales.<br>
+<u>d) Estado de ejecución, contexto del procesador, pila de ejecución, espacio para variables, acceso a memoria y recursos del proceso.</u></p>
+<p>Las otras son incompletas</p>
+<h4 id="cual-de-estos-es-un-beneficio-de-la-organizaci%C3%B3n-micron%C3%BAcleo">Cual de estos es un beneficio de la organización micronúcleo</h4>
+<p>a) Interfaces multiformes.<br>
+<u>b) Flexibilidad.</u><br>
+c) Soporte de sistemas centralizados.<br>
+d) Todas son incorrectas</p>
+<p>La b) es correcta porque las otras son beneficios negados.</p>
+<h4 id="los-hilos-a-nivel-de-usuario-ult">Los hilos a nivel de usuario (ULT)</h4>
+<p>a) El núcleo gestiona todo el trabajo de los hilos.<br>
+b) Una aplicación empieza a la vez en múltiples hilos.<br>
+c) a) y b) son correctas.<br>
+<u>d) El núcleo no es consciente de la existencia de los hilos.</u></p>
+<p>La a) es incorrecta porque el núcleo NO gestiona todo el trabajo de los hilos.<br>
+La b) es incorrecta porque una aplicación empieza en un UNICO hilo.</p>
+<h4 id="los-hilos-a-nivel-de-n%C3%BAcleo-klt">Los hilos a nivel de núcleo (KLT)</h4>
+<p><u>a) Se pueden planificar simultáneamente múltiples hilos de un solo proceso en múltiples procesadores.</u><br>
+b) La aplicación gestiona todo el trabajo de los hilos.<br>
+c) Se pueden ejecutar en cualquier sistema operativo.<br>
+d) Pocas llamadas al sistema.</p>
+<p>La b) y la c) serian de ULT y en KLT se hacen muchas llamadas recursivas.</p>
+<h4 id="sobre-la-arquitectura-micron%C3%BAcleo">Sobre la arquitectura micronúcleo</h4>
+<p>a) Consiste en un núcleo por capas donde el núcleo controla todos los recursos.<br>
+<u>b) El micronúcleo es la pequeña parte central del sistema operativo que proporciona las bases para extensiones modulares.</u><br>
+c) Tiene una estructura vertical.<br>
+d) Los procesos necesitan diferenciar entre servicios a nivel de núcleo y a nivel de usuario.</p>
+<p>En la a) estaríamos hablando de arquitectura por capas, el micronúcleo tiene una estructura horizontal y no se necesitan diferenciar los servicios.</p>
+<h4 id="en-un-modelo-de-proceso-multihilo">En un modelo de proceso multihilo</h4>
+<p>a) Mientras un proceso se ejecuta, los registros del procesador se controlan por este proceso.<br>
+b) Cuando no se ejecuta el hilo se almacenan los registros.<br>
+<u>c) El valor de los registros del hilo se almacenan en un BCP.</u><br>
+d) Ninguna de las anteriores es correcta.</p>
+<p>La a) y la b) corresponden al modelo monohilo.</p>
+<h4 id="a-que-se-refiere-el-concepto-multihilo">A que se refiere el concepto multihilo</h4>
+<p>a) A la ejecución de un mismo hilo varias veces<br>
+<u>b) Capacidad de un sistema operativo de dar soporte a múltiples hilos de ejecución en un solo proceso.</u><br>
+c) Capacidad de un sistema operativo de dar soporte a múltiples procesos de ejecución en un solo hilo.<br>
+d) Ninguna de las anteriores es correcta.</p>
+<p>Definición de multihilo</p>
+<h4 id="que-permite-la-arquitectura-micron%C3%BAcleo-sobre-la-gesti%C3%B3n-de-es-e-interrupciones">Que permite la arquitectura micronúcleo sobre la gestión de E/S e interrupciones</h4>
+<p><u>a) Manejar las interrupciones hardware como mensajes e incluir los puertos de E/S en los espacios de memoria</u><br>
+b) Manejar las interrupciones hardware y E/S como mensajes<br>
+c) Manejar las interrupciones hardware y E/S como espacios de memoria<br>
+d) Manejas las interrupciones hardware como espacios de memoria y los puertos E/S como mensajes</p>
+<p>Definición de gestión de E/S e interrupciones con arquitectura micronúcleo.</p>
+<h2 id="tema-5">Tema 5</h2>
+<h4 id="los-temas-centrales-del-dise%C3%B1o-de-sistemas-operativos-relacionados-con-la-gesti%C3%B3n-de-procesos-e-hilos-son">Los temas centrales del diseño de sistemas operativos, relacionados con la gestión de procesos e hilos son</h4>
+<p>a) Paso de mensajes, proceso concurrente y recurso crítico.<br>
+<u>b) Multiprocesamiento, multiprogramación y procesamiento distribuido.</u><br>
+c) Paso de mensajes, multiprocesamiento y recurso crítico.<br>
+d) Multiprogramación, paso de mensajes y procesamiento distribuido.</p>
+<h4 id="se%C3%B1ala-la-opci%C3%B3n-falsa">Señala la opción falsa</h4>
+<p>a) Podemos encontrar la concurrencia en múltiples aplicaciones, aplicaciones estructuradas y en la estructura del sistema operativo.<br>
+b) La concurrencia abarca aspectos como la comunicación entre procesos y la compartición de recursos.<br>
+c) La multiprogramación fue ideada para permitir compartir dinámicamente el tiempo de procesamiento entre varias aplicaciones activas.<br>
+<u>d) Toda aplicación puede ser programada de manera eficaz como un conjunto de procesos concurrentes.</u></p>
+<h4 id="indica-cu%C3%A1l-de-%C3%A9stas-definiciones-corresponde-con-el-t%C3%A9rmino-de-interbloqueo">Indica cuál de éstas definiciones corresponde con el término de interbloqueo</h4>
+<p>a) Situación en la cual un proceso preparado para avanzar es soslayado indefinidamente por el planificador, aunque es capaz de avanzar, nunca se le escoge.<br>
+b) Requisito de que cuando un proceso esté en una sección crítica que accede a recursos compartidos, ningún otro proceso pueda estar en una sección crítica que acceda a ninguno de estos recursos compartidos.<br>
+<u>c) Situación en la cual dos o más procesos son incapaces de actuar porque cada uno está esperando que alguno de los otros haga algo.</u><br>
+d) Situación en la cual dos o más procesos cambian continuamente su estado en respuesta a cambios en los otros procesos, sin realizar ningún trabajo útil.</p>
+<h4 id="indica-cu%C3%A1l-no-es-un-requisito-para-la-exclusi%C3%B3n-mutua">Indica cuál no es un requisito para la exclusión mutua</h4>
+<p>a) Un proceso permanece dentro de su sección crítica sólo por un tiempo finito.<br>
+<u>b) Un proceso que se pare en su sección no crítica puede interferir en otros procesos.</u><br>
+c) No debe ser posible que un proceso que solicite acceso a una sección crítica sea postergado indefinidamente: ni interbloqueo ni inanición.<br>
+d) No se hacen suposiciones sobre las velocidades relativas de los procesos ni sobre el número de procesadores.</p>
+<h4 id="indica-cu%C3%A1l-es-una-desventaja-del-uso-de-una-instrucci%C3%B3n-m%C3%A1quina-especial-para-conseguir-exclusi%C3%B3n-mutua">Indica cuál es una desventaja del uso de una instrucción máquina especial para conseguir exclusión mutua</h4>
+<p><u>a) Posibilidad de inanición.</u><br>
+b) Posibilidad de círculo vicioso.<br>
+c) Posibilidad de condición de carrera.<br>
+d) Dificultad de verificación.</p>
+<h4 id="%C2%BFcual-es-el-principio-fundamental-del-sem%C3%A1foro">¿Cual es el principio fundamental del semáforo?</h4>
+<p><u>a) Es un recurso compartido de UNIX, en el cual dos o mas procesos pueden cooperar por medio de señales, tales que un proceso pueda ser obligado a parar en un lugar especifico hasta que haya recibido una señal especifica.</u><br>
+b) Es un recurso compartido que hace que los procesos se ejecuten de forma más rapida y en orden aleatorio.<br>
+c) Es un recurso compartido de UNIX, el cual hace que todos los procesos se ejecuten en un recurso a la vez.<br>
+d) Todas son falsas.</p>
+<h4 id="%C2%BFque-hace-un-semwait-y-un-semsignal">¿Que hace un semWait y un semSignal?</h4>
+<p>a) Dan paso al proceso dentro del recurso y lo hacen salir del recurso respectivamente.<br>
+b) Se usa en otros recursos compartidos de UNIX.<br>
+<u>c) Decrementa el semáforo antes de entrar en el recurso, y lo incremente justo cuando lo acaba de usar respectivamente.</u><br>
+d) No sirven para nada, els SO controla totalmente los procesos.</p>
+<h4 id="%C2%BFsi-tenemos-tres-procesos-usando-un-recursocontador-sem%C3%A1foro-est%C3%A1---2-y-un-proceso-sale-y-hace-un-semsignal-contador-sem%C3%A1foro---1-y-tenemos-varios-procesos-en-la-cola-de-bloqueados-del-sem%C3%A1foro-como-y-cuando-pueden-entrar-a-usar-el-recurso-que-han-dejado-disponible">¿Si tenemos tres procesos usando un recurso(contador semáforo está = -2) y un proceso sale y hace un semSignal (contador semáforo = -1), y tenemos varios procesos en la cola de bloqueados del semáforo, como y cuando pueden entrar a usar el recurso que han dejado disponible?</h4>
+<p>a) El mismo proceso en cola se metera en el recurso cuando el último haya hecho un semSignal.<br>
+b) No va entrar hasta que el semáforo sea igual o mayor que 0.<br>
+c) Aunque el semáforo este en negativo, el SO coge un proceso de la cola de bloqueados del semáforo cuando un proceso hace un semSignal. Y va a ser lo primero que haga el SO, ya que la cola de bloqueados de los semáforos tienen prioridad absoluta en todos los SO.<br>
+<u>d) Aunque el semáforo este en negativo, el SO coge un proceso de la cola de bloqueados del semáforo cuando un proceso hace un semSignal. Y va a tardar dependiendo de las politicas del SO.</u></p>
+<h4 id="%C2%BFcual-es-la-diferencia-entre-un-sem%C3%A1foro-fuerte-y-uno-debil">¿Cual es la diferencia entre un semáforo fuerte y uno debil?</h4>
+<p>a) No existen los semáforos debiles ni fuertes.<br>
+<u>b) Los semáforos fuertes son los que tienen una politica FIFO (los primero que han entrado son los primeros que saldran), mintras que un semáforo debil es aquel que no sigue esta politica.</u><br>
+c) Ninguna de las otras es correcta.<br>
+d) Los semáforo fuertes son los que tiene mas prioridad delante semáforos debiles.</p>
+<h4 id="%C2%BFcomo-actua-el-sem%C3%A1foro-para-solucionar-el-problema-del-productorconsumidor">¿Como actua el semáforo, para solucionar el problema del productor/consumidor?</h4>
+<p><u>a) El problema del productor/consumidor, solo admite un productor (puede haber varios) o un consumidor usar el buffer de datos, no puede haber más procesos a la vez, por tanto usando un semáforo binario.</u><br>
+b) El problema del productor/rconsumidor no necesita semáforos.<br>
+c) El problema del productor/consumidor es un problema visto en empresa de primero de GEIN, no tiene nada que ver con SO I.<br>
+d) El problema del productor/consumidor, solo acepta varios(dependiendo del semáforo que se haya definido) procesos productores o varios procesos consumidores coger del buffer de datos.</p>
+<h4 id="c%C3%B3mo-hace-un-programa-para-entrar-en-el-monitor">Cómo hace un programa para entrar en el monitor?</h4>
+<p>a) Haciendo un wait sobre el semáforo del monitor.<br>
+b) Haciendo un signal sobre el semáforo del monitor.<br>
+c) El monitor invoca al programa para que entre.<br>
+<u>d) Invocando un método del monitor.</u>.</p>
+<p>Un monitor es un módulo de software distinto a un semáforo que implementa unas funciones internas de forma que la exclusión mutua se consigue evitando que un método del mismo sea utilizado por dos procedimientos a la vez.</p>
+<h4 id="como-se-consigue-la-sincronizaci%C3%B3n-entre-procesos-usando-un-monitor-es-decir-c%C3%B3mo-puede-informar-a-otro-proceso-bloqueado-que-un-recurso-est%C3%A1-disponible">Como se consigue la sincronización entre procesos usando un monitor, es decir cómo puede informar a otro proceso bloqueado que un recurso está disponible?</h4>
+<p>a) Con un signal del semáforo del monitor.<br>
+<u>b) Utilizando variables condicionales.</u><br>
+c) Por paso de mensajes.<br>
+d) Invocando a un método especifico del monitor que cumple dicho objetivo.</p>
+<p>Con el uso de semáforos el mismo semáforo actúa como un sistema de sincronización, es decir que si el semáforo está disponible entonces el recurso está disponible. En el caso del monitor lo que se protege es un método (programación orientada a objetos) de forma que al terminar la ejecución del método no se puede asegurar que el recurso está disponible, sin embargo como el método solo lo puede utilizar un proceso a la vez entonces al introducir una variable condicional dentro del procedimiento se puede indicar a otro proceso de que puede continuar.</p>
+<h4 id="en-el-caso-de-sem%C3%A1foros-para-asegurar-exclusi%C3%B3n-mutua-sobre-varios-recursos-se-necesitan-tantos-como-recursos-se-quieran-proteger-en-el-caso-de-un-monitor-c%C3%B3mo-se-consigue">En el caso de semáforos para asegurar exclusión mutua sobre varios recursos se necesitan tantos como recursos se quieran proteger. En el caso de un monitor cómo se consigue?</h4>
+<p><u>a) Creando tantas variables condicionales como recursos haya que proteger.</u><br>
+b) Creando funciones internas propias para cada recurso.<br>
+c) Creando tantos monitores como recursos haya que proteger.<br>
+d) Con el paso de mensajes.</p>
+<p>Como la variable condicional es utilizada por el monitor para conseguir la sincronización entre procesos, entonces al utilizar varias variables se consigue que un proceso se bloque en diferentes colas que representarían las colas de los recursos.</p>
+<h4 id="que-sucede-cuando-un-proceso-que-est%C3%A1-dentro-del-monitor-ejecuta-un-signal-sobre-una-variable-condicional">Que sucede cuando un proceso que está dentro del monitor ejecuta un signal sobre una variable condicional</h4>
+<p>a) Todos los procesos que están esperando por entrar en el monitor lo hacen.<br>
+b) Se activan todos los procesos que están en la cola de espera de la variable condicional.<br>
+<u>c) Dependiendo de la implementación el proceso actual se bloquea en el monitor o termina su ejecución.</u><br>
+d) Ninguna de las anteriores.<br>
+Cuando el proceso actual realiza un signal podría continuar su ejecución mientras no se active ningún otro proceso, o podría bloquearse dentro del monitor para que entre otro proceso (no necesariamente un proceso de la cola de la variable condicional) ya que en ambos casos se sigue cumpliendo la exclusión mutua.</p>
+<h4 id="con-qu%C3%A9-implementaci%C3%B3n-de-paso-de-mensajes-no-tienen-que-esperar-el-emisor-ni-el-receptor">Con qué implementación de paso de mensajes no tienen que esperar el emisor ni el receptor?</h4>
+<p>a) Blocking send, nonblocking receive.<br>
+<u>b) Nonblocking send, nonblocking receive.</u><br>
+c) Nonblocking send, blocking receive.<br>
+d) Blocking send, blocking receive.</p>
+<h4 id="en-qu%C3%A9-tipo-de-direccionamiento-en-los-mensajes-entre-procesos-se-refiere-al-mailbox-como-port">En qué tipo de direccionamiento en los mensajes entre procesos se refiere al mailbox como port?</h4>
+<p><u>a) Many to one.</u><br>
+b) One to one.<br>
+c) One to many.<br>
+d) Many to many.</p>
+<h4 id="una-forma-de-implementar-la-cola-de-mensajes-es-con-un-fifo-pero-si-algunos-mensajes-pueden-ser-m%C3%A1s-urgentes-que-otros-una-opci%C3%B3n-es">Una forma de implementar la cola de mensajes es con un FIFO, pero si algunos mensajes pueden ser más urgentes que otros una opción es</h4>
+<p>a) Que el receptor asigne un campo de prioridad a los mensajes.<br>
+b) Que el emisor decida la prioridad del mensaje según el contenido del mensaje.<br>
+c) Que el receptor decida la prioridad del mensaje según el contenido del mensaje.<br>
+<u>d) Que el receptor pueda inspeccionar la cola de mensajes y elegir cual quiere recibir.</u></p>
+<h4 id="cu%C3%A1l-de-los-siguientes-elementos-no-se-encuentra-en-la-cabecera-un-mensaje-t%C3%ADpico">Cuál de los siguientes elementos NO se encuentra en la cabecera un mensaje típico</h4>
+<p>a) Tipo de mensaje.<br>
+b) ID de la fuente.<br>
+<u>c) Prioridad del mensaje.</u><br>
+d) Información de control.</p>
+<h2 id="tema-6">Tema 6</h2>
+<h4 id="en-qu%C3%A9-categorias-se-pueden-dividir-los-recursos">En qué categorias se pueden dividir los recursos?</h4>
+<p>a) Reutilizables y no reutilitzables.<br>
+<u>b) Reutilizables y consumibles.</u><br>
+c) Necesarios, no reutilitzables y consumibles.<br>
+d) Necesarios, consumibles y destruibles.</p>
+<p>Tan solo existen los recursos reutilitzables y los consumibles.</p>
+<h4 id="de-las-listas-siguientes-en-cual-de-ellas-todos-los-recursos-son-reutilizables">De las listas siguientes, en cual de ellas todos los recursos son reutilizables?</h4>
+<p><u>a) Procesadores, canales de E/S y bases de datos.</u><br>
+b) Buffers de E/S, memoria principal y semáforos.<br>
+c) Procesadores, interrupciones y memoria principal.<br>
+d) Memoria principal y secundaria, interrupciones y seméaforos.</p>
+<p>Los recursos reutilitzables son aquellos que pueden ser usados con seguridad por un proceso y no se agota con el uso. Como ejemplos de recursos reutilizables se tienen los procesadores, canales de E/S, memoria principal y secundaria, dispositivos y estructuras de datos tales como archivos, bases de datos y semáforos.</p>
+<h4 id="cuales-son-los-m%C3%A9todos-generales-para-hacer-frente-al-interbloqueo">Cuales son los métodos generales para hacer frente al interbloqueo?</h4>
+<p>a) Prevención, andlisis y estructuración.<br>
+<u>b) Prevención, deteccién y predicción. (X)</u><br>
+c) Prevención, deteccion y estructuración.<br>
+d) Comprobación, captaci6n y predicción.</p>
+<p>Los métodos generales para hacer frente al interbloqueo son tres: prevención, detección y predicción.</p>
+<h4 id="se%C3%B1ala-que-opci%C3%B3n-es-correcta">Señala que opción es correcta</h4>
+<p>a) Un estado seguro es aquel estado capaz de llegar hasta el final sin generar interbloqueo.<br>
+b) Un estado seguro es aquel estado capaz de llegar hasta el final generando interbloqueo.<br>
+c) Un estado seguro es un estado en el cual no existe ningún orden en el que todos los procesos puedan ejecutar hasta el final sin generar un interbloqueo.<br>
+<u>d) Un estado seguro es un estado en el cual existe al menos un orden en el que todos los procesos puedan ejecutar hasta el final sin generar un interbloqueo.</u></p>
+<h4 id="cual-de-las-siguientes-afirmaciones-es-falsa">Cual de las siguientes afirmaciones es falsa?</h4>
+<p>a) Una señal es un mecanismo de software que informa a un proceso de la existencia de eventos asincronos.<br>
+b) Las señales pueden ser enviadas tanto por procesos como por el núcleo.<br>
+<u>c) Un proceso siempre tiene que responder una señal.</u><br>
+d) Las señales tienen todas la misma prioridad y se le presentan al proceso una detras de otra.</p>
+<p>Un proceso puede responder a una señal (ya sea realizando alguna accion por defecto o ejecutando una función de manejo de la señal) o simplemente ignorarla.</p>
+<h4 id="en-qu%C3%A9-consiste-la-prevencion-del-interbloqueo">En qué consiste la prevencion del interbloqueo?</h4>
+<p>a) Se permiten las tres condiciones necesarias del interbloqueo pero se toman decisiones razonables para evitarlo.<br>
+b) Mirar los procesos detectando algun indicio de interbloqueo.<br>
+<u>c) Diseñar el sistema de tal manera que se excluya la posibilidad de interbloqueo.</u><br>
+d) Detecta el interbloqueo y lo soluciona como lo requiera el problema.<br>
+La prevención de un interbloqueo se basa en diseñar un sistema donde no exista la posibilidad de interbloqueo.</p>
+<h4 id="que-tipos-de-tuberias-existen-en-unix">Que tipos de tuberias existen en UNIX?</h4>
+<p>a) Las de 64B, de 128B y de 264B.<br>
+<u>b) Con nombre y sin nombre.</u><br>
+C) Las débiles, las medianas y las fuertes.<br>
+d) Las que aceptan varios procesos a la vez y las que solo aceptan uno.</p>
+<p>Existen las que tienen nombre, que pueden ser compartidas por cualquier proceso, y las que no tienen nombre que pueden ser compartidas únicamente por procesos relacionados entre si.</p>
+<h4 id="de-cuales-de-los-siguientes-elementos-no-consta-un-sem%C3%A1foro">De cuales de los siguientes elementos no consta un semáforo?</h4>
+<p>a) El valor actual del semáforo.<br>
+b) El número de procesos en espera de que el valor del semáforo sea 0.<br>
+<u>c) El identificador de los procesos que estan a la espera.</u><br>
+d) El identificador del último proceso que operó con el semáforo.</p>
+<p>Un semáforo puede indicar el número de procesos que desean acceder al recuso y esta asociado a una cola de procesos bloqueados, pero no tiene el identificador de los procesos en cola.</p>
+<h4 id="qu%C3%A9-condiciones-debe-haber-para-que-siempre-se-produzca-un-interbloqueo">Qué condiciones debe haber para que, siempre, se produzca un interbloqueo?</h4>
+<p><u>a) Exclusión mutua, retención y espera, sin expropiación y espera circular.</u><br>
+b) Exclusón mutua, prevención y sin expropiación.<br>
+c) Exclusión mutua, retención y espera, y sin expropiación.<br>
+d) Exclusión mutua, retención y espera, y asignación de recursos.</p>
+<p>Las condiciones necesarias para que exista la posibilidad de que haya interbloqueo son exclusión mutua, retenci6n y espera y sin expropiación, pero incluso con estas tres condiciones puede no producirse el interbloqueo, para que siempre haya interbloqueo, hay que añadir una cuarta condición, la espera circular.</p>
+<h4 id="cual-de-las-siguientes-afirmaciones-sobre-las-tuber%C3%ADas-es-falsa">Cual de las siguientes afirmaciones sobre las tuberías es falsa?</h4>
+<p>a) Un proceso que intenta leer mas bytes de los que están en la tuberia, se bloquea.<br>
+b) Una tubería es un buffer circular que permite que dos procesos se comuniquen siguiendo el modelo productor-consumidor. Por tanto, se establece una cola de tipo que el primero en entrar en la tuberia, es el primero en salir.<br>
+<u>c) Una tuberia puede ser accedida por mas de un proceso simultaneamente.</u><br>
+d) Cuando un proceso intenta escribir en la tubería, la petición de escritura se ejecuta inmediatamente siempre y cuando haya espacio en la tubería, en caso
+contrario se bloquea el proceso. En cada momento sólo puede acceder a una tubería, un único proceso.</p>
+<h4 id="cual-de-los-siguientes-tipos-de-semaforos-no-existe">Cual de los siguientes tipos de semaforos no existe?</h4>
+<p>a) Semaforos con contador.<br>
+b) Semaforos de lectura - escritura.<br>
+<u>c) Semaforos de E/S (Entrada / Salida).</u><br>
+d) Semaforos binarios.</p>
+<p>Los semaforos de Entrada/Salida no existen.</p>
+<h4 id="elije-la-opci%C3%B3n-correcta">Elije la opción correcta</h4>
+<p>a) Los procesos no pueden enviar sejiales entre si.<br>
+b) La forma mas rápida de comunicacién entre procesos son las tuberías.<br>
+c) Un mensaje entre procesos, nunca podra provocar un bloqueo de algún proceso.<br>
+<u>d) La forma mas rápida de comunicacién entre procesos es la memoria compartida.</u></p>
+<p>Los procesos pueden enviar señales entre si, la forma mas rápida de comunicación entre procesos es la memoria compartida, Un mensaje entre procesos, puede provocar un bloqueo de algín proceso, si se intenta enviar un mensaje a una cola llena o si se intenta leer un mensaje de una cola vacía.</p>
+
+</body>
+</html>
